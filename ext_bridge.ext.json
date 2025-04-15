@@ -1,6 +1,6 @@
 {
-	"type": "object",
-	"name": "SIP",
+	"type": "CityJSONExtension",
+	"name": "SIP_Bridge",
 	"url": "https://raw.githubusercontent.com/Chika96/test/refs/heads/main/ext_bridge.ext.json",
 	"version": "1.0",
 	"versionCityJSON": "2.0",
@@ -44,16 +44,13 @@
 			"type":"object",
 			"properties": {
 				"sip:title":{
-					"type":"object",
-					"properties": {"value":{"type": ["string","null"]}}
+					"$ref": "#/definitions/stringOrNil"
 				},				
 				"sip:date":{
-					"type":"object",
-					"properties": {"value":{"type": ["string","null"]}}
+					"$ref": "#/definitions/stringOrNil"
 				},
 				"sip:version":{
-					"type":"object",
-					"properties": {"value":{"type": ["string","null"]}}
+					"$ref": "#/definitions/stringOrNil"
 				}				
 			}
 		},
@@ -61,29 +58,16 @@
 			"type":"object",
 			"properties": {
 				"sip:concreteStrength":{
-					"type":"object",
-					"properties": {"value":{"type": ["number","null"]}}
+					"$ref": "#/definitions/numberOrNil"
 				},
 				"sip:reinforcementMaterial":{
-					"type":"object",
-					"properties": {
-						"code":{"type": "string"},
-						"codeSpace":{"type": "string"}
-					}
+					"$ref": "#/definitions/stringOrNil"
 				},
 				"sip:steelMaterial":{
-					"type":"object",
-					"properties": {
-						"code":{"type": "string"},
-						"codeSpace":{"type": "string"}
-					}
+					"$ref": "#/definitions/stringOrNil"
 				},
 				"sip:PCsteelMaterial":{
-					"type":"object",
-					"properties": {
-						"code":{"type": "string"},
-						"codeSpace":{"type": "string"}
-					}
+					"$ref": "#/definitions/"
 				}
 			}
 		},
@@ -92,18 +76,10 @@
 			"type":"object",
 			"properties": {
 				"sip:type":{
-					"type":"object",
-					"properties": {
-						"code":{"type": "string"},
-						"codeSpace":{"type": "string"}
-					}
+							"$ref": "#/definitions/codeType"
 				},
 				"sip:axis":{
-					"type":"object",
-					"properties": {
-						"code":{"type": "string"},
-						"codeSpace":{"type": "string"}
-					}
+							"$ref": "#/definitions/codeType"
 				}
 			}
 		},
@@ -111,35 +87,19 @@
 			"type":"object",
 			"properties": {
 				"sip:type":{
-					"type":"object",
-					"properties": {
-						"code":{"type": "string"},
-						"codeSpace":{"type": "string"}
-					}
+							"$ref": "#/definitions/codeType"
 				},
 				"sip:axis":{
-					"type":"object",
-					"properties": {
-						"code":{"type": "string"},
-						"codeSpace":{"type": "string"}
-					}
+							"$ref": "#/definitions/codeType"
 				},
 				"length":{
 					"$ref": "#/definitions/measureOrNil"
 				},
 				"changeAxis":{
-					"type":"object",
-					"properties": {
-						"code":{"type": "string"},
-						"codeSpace":{"type": "string"}
-					}
+							"$ref": "#/definitions/codeType"
 				},
 				"measurementPoint":{
-					"type":"object",
-					"properties": {
-						"code":{"type": "string"},
-						"codeSpace":{"type": "string"}
-					}
+							"$ref": "#/definitions/codeType"
 				}
 			}
 		},
@@ -147,32 +107,16 @@
 			"type":"object",
 			"properties": {
 				"sip:type":{
-					"type":"object",
-					"properties": {
-						"code":{"type": "string"},
-						"codeSpace":{"type": "string"}
-					}
+							"$ref": "#/definitions/codeType"
 				},
 				"sip:axis":{
-					"type":"object",
-					"properties": {
-						"code":{"type": "string"},
-						"codeSpace":{"type": "string"}
-					}
+							"$ref": "#/definitions/codeType"
 				},
 				"length":{
-					"type":"object",
-					"properties": {
-						"code":{"type": "string"},
-						"codeSpace":{"type": "string"}
-					}
+							"$ref": "#/definitions/codeType"
 				},
 				"measurementPoint":{
-					"type":"object",
-					"properties": {
-						"code":{"type": "string"},
-						"codeSpace":{"type": "string"}
-					}
+							"$ref": "#/definitions/codeType"
 				}
 			}
 		},
@@ -180,39 +124,24 @@
 			"type":"object",
 			"properties": {
 				"sip:type":{
-					"type":"object",
-					"properties": {
-						"code":{"type": "string"},
-						"codeSpace":{"type": "string"}
-					}
+					"$ref": "#/definitions/codeType"
 				},
 				"sip:axis":{
-					"type":"object",
-					"properties": {
-						"code":{"type": "string"},
-						"codeSpace":{"type": "string"}
-					}
+					"$ref": "#/definitions/codeType"
 				},
 				"sip:count":{
-			"type":"object"	,
-			"properties": {"value":{"type": ["number","null"]}		
-			
-			}
+					"$ref": "#/definitions/numberOrNil"
 				}
-			}
-		},
-
+				}
+			},
 		"Shape":{
 				"type": "object",
 				"properties": {
 					"sip:acquisitionDate":{
-			"type":"object"	,
-			"properties": {"value":{"type": ["number","null"]}		
-			
-			}
+						"$ref": "#/definitions/numberOrNil"
 					},
 					"sip:acquisitionMethod":{
-							"$ref": "#/definitions/stringOrNil"
+						"$ref": "#/definitions/stringOrNil"
 					},				
 					"sip:source":{
 						"$ref": "#/definitions/Resource"						
@@ -243,8 +172,7 @@
 					"type": "string"
 				},
 				"sip:pointFileSrsName":{
-					"type":"object",
-					"properties": {"value":{"type": ["string","null"]}}
+					"$ref": "#/definitions/stringOrNil"
 				}
 			}
 		},
@@ -271,27 +199,19 @@
 			"type":"object",
 			"properties": {
 				"sip:originCoord":{
-						"$ref": "geomprimitives.schema.json#/MultiPoint"						
+					"$ref": "geomprimitives.schema.json#/MultiPoint"						
 				},
 				"sip:planarRectangularCoordinateSystem":{
-					"type":"object",
-					"properties": {
-						"code":{"type": "string"},
-						"codeSpace":{"type": "string"}
-					}
+					"$ref": "#/definitions/codeType"
 				},
 				"sip:trueNorthDirection":{
-					"type":"object",
-					"properties": {"value":{"type": ["string","null"]}}
+					"$ref": "#/definitions/stringOrNil"
 				},
 				"sip:scale":{
-			"type":"object"	,
-			"properties": {"value":{"type": ["number","null"]}		
-			
-			}
+					"$ref": "#/definitions/numberOrNil"
 				}
-				
 			}
+				
 		}
 	},
 	"extraAttributes":{
