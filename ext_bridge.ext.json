@@ -153,10 +153,12 @@
 						"$ref": "geomprimitives.schema.json#/PointCloud"
 					},
 					"layout":{
-						type":"array",
-						"items":{
-						   "$ref": "#/definitions/LayoutInfo"
-						}
+												"type": "array",
+												  "items": {
+												"oneOf": [
+														  { "$ref": "#/definitions/LayoutInfo" }
+												]
+												} 
 
 					},
 					"georeference":{
