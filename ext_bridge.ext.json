@@ -640,18 +640,10 @@
 		}
 		}	,		
 	"BridgeConstructiveElement":{
-				"sip:spanNumber" :{
-					"$ref": "#/definitions/stringOrNil"
-				},
-				"sip:supportNumber":{
-					"$ref": "#/definitions/stringOrNil"
-				},
-				"sip:componentName":{
-					"$ref": "#/definitions/codeType"
-				},
-				"sip:componentNumber":{
-					"$ref": "#/definitions/stringOrNil"
-				},
+				"sip:spanNumber" :"string",
+				"sip:supportNumber":"string",
+				"sip:componentName":"string",
+				"sip:componentNumber""string",
 				"sip:compositionType":{
 					"$ref": "#/definitions/Composition"
 				},
@@ -674,27 +666,13 @@
 				}
 	},	
 	"BridgeInstallation":{
-				"sip:spanNumber" :{
-					"$ref": "#/definitions/stringOrNil"
-				},
-				"sip:supportNumber":{
-					"$ref": "#/definitions/stringOrNil"
-				},
-				"sip:componentName":{
-					"$ref": "#/definitions/codeType"
-				},
-				"sip:componentNumber":{
-					"$ref": "#/definitions/stringOrNil"
-				},
-				"sip:compositionType":{
-					"$ref": "#/definitions/codeType"
-				},
-				"sip:substanceType":{
-					"$ref": "#/definitions/codeType"
-				},
-				"sip:constructionType":{
-					"$ref": "#/definitions/codeType"
-				},
+				"sip:spanNumber" :"string",
+				"sip:supportNumber":"string",
+				"sip:componentName":"string",
+				"sip:componentNumber":"string",
+				"sip:compositionType":"string",
+				"sip:substanceType":"string",
+				"sip:constructionType":"string",
 				"sip:shape":{
 				"type":"array",
 				"items":{
