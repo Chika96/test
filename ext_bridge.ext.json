@@ -1,7 +1,7 @@
 {
 	"type": "CityJSONExtension",
 	"name": "SIP",
-	"url": "https://sample.sip/JSON/1.0/bridge.ext.json",
+	"url": "https://github.com/Chika96/test/blob/main/ext_bridge.ext.json",
 	"version": "1.0",
 	"versionCityJSON": "2.0",
 	"description": "Extension for SIP Bridge Structure Model",
