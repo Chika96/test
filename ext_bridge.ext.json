@@ -1,7 +1,7 @@
 {
-	"type": "CityJSONExtension",
+	"type": "object",
 	"name": "SIP",
-	"url": "https://github.com/Chika96/test/blob/main/ext_bridge.ext.json",
+	"url": "https://raw.githubusercontent.com/Chika96/test/refs/heads/main/ext_bridge.ext.json",
 	"version": "1.0",
 	"versionCityJSON": "2.0",
 	"description": "Extension for SIP Bridge Structure Model",
@@ -44,13 +44,16 @@
 			"type":"object",
 			"properties": {
 				"sip:title":{
-					"$ref": "bridge.ext.json#/stringOrNil"
+					"type":"object",
+					"properties": {"value":{"type": ["string","null"]}}
 				},				
 				"sip:date":{
-					"$ref": "bridge.ext.json#/stringOrNil"
+					"type":"object",
+					"properties": {"value":{"type": ["string","null"]}}
 				},
 				"sip:version":{
-					"$ref": "bridge.ext.json#/stringOrNil"
+					"type":"object",
+					"properties": {"value":{"type": ["string","null"]}}
 				}				
 			}
 		},
@@ -58,16 +61,29 @@
 			"type":"object",
 			"properties": {
 				"sip:concreteStrength":{
-					"$ref": "bridge.ext.json#/numberOrNil"
+					"type":"object",
+					"properties": {"value":{"type": ["number","null"]}}
 				},
 				"sip:reinforcementMaterial":{
-					"$ref": "bridge.ext.json#/codeType"
+					"type":"object",
+					"properties": {
+						"code":{"type": "string"},
+						"codeSpace":{"type": "string"}
+					}
 				},
 				"sip:steelMaterial":{
-					"$ref": "bridge.ext.json#/codeType"
+					"type":"object",
+					"properties": {
+						"code":{"type": "string"},
+						"codeSpace":{"type": "string"}
+					}
 				},
 				"sip:PCsteelMaterial":{
-					"$ref": "bridge.ext.json#/codeType"
+					"type":"object",
+					"properties": {
+						"code":{"type": "string"},
+						"codeSpace":{"type": "string"}
+					}
 				}
 			}
 		},
@@ -76,10 +92,18 @@
 			"type":"object",
 			"properties": {
 				"sip:type":{
-					"$ref": "bridge.ext.json#/codeType"
+					"type":"object",
+					"properties": {
+						"code":{"type": "string"},
+						"codeSpace":{"type": "string"}
+					}
 				},
 				"sip:axis":{
-					"$ref": "bridge.ext.json#/codeType"
+					"type":"object",
+					"properties": {
+						"code":{"type": "string"},
+						"codeSpace":{"type": "string"}
+					}
 				}
 			}
 		},
@@ -87,19 +111,35 @@
 			"type":"object",
 			"properties": {
 				"sip:type":{
-					"$ref": "bridge.ext.json#/codeType"
+					"type":"object",
+					"properties": {
+						"code":{"type": "string"},
+						"codeSpace":{"type": "string"}
+					}
 				},
 				"sip:axis":{
-					"$ref": "bridge.ext.json#/codeType"
+					"type":"object",
+					"properties": {
+						"code":{"type": "string"},
+						"codeSpace":{"type": "string"}
+					}
 				},
 				"length":{
-					"$ref": "bridge.ext.json#/measureOrNil"
+					"$ref": "#/definitions/measureOrNil"
 				},
 				"changeAxis":{
-					"$ref": "bridge.ext.json#/codeType"
+					"type":"object",
+					"properties": {
+						"code":{"type": "string"},
+						"codeSpace":{"type": "string"}
+					}
 				},
 				"measurementPoint":{
-					"$ref": "bridge.ext.json#/codeType"
+					"type":"object",
+					"properties": {
+						"code":{"type": "string"},
+						"codeSpace":{"type": "string"}
+					}
 				}
 			}
 		},
@@ -107,16 +147,32 @@
 			"type":"object",
 			"properties": {
 				"sip:type":{
-					"$ref": "bridge.ext.json#/codeType"
+					"type":"object",
+					"properties": {
+						"code":{"type": "string"},
+						"codeSpace":{"type": "string"}
+					}
 				},
 				"sip:axis":{
-					"$ref": "bridge.ext.json#/codeType"
+					"type":"object",
+					"properties": {
+						"code":{"type": "string"},
+						"codeSpace":{"type": "string"}
+					}
 				},
 				"length":{
-					"$ref": "bridge.ext.json#/measureOrNil"
+					"type":"object",
+					"properties": {
+						"code":{"type": "string"},
+						"codeSpace":{"type": "string"}
+					}
 				},
 				"measurementPoint":{
-					"$ref": "bridge.ext.json#/codeType"
+					"type":"object",
+					"properties": {
+						"code":{"type": "string"},
+						"codeSpace":{"type": "string"}
+					}
 				}
 			}
 		},
@@ -124,13 +180,24 @@
 			"type":"object",
 			"properties": {
 				"sip:type":{
-					"$ref": "bridge.ext.json#/codeType"
+					"type":"object",
+					"properties": {
+						"code":{"type": "string"},
+						"codeSpace":{"type": "string"}
+					}
 				},
 				"sip:axis":{
-					"$ref": "bridge.ext.json#/codeType"
+					"type":"object",
+					"properties": {
+						"code":{"type": "string"},
+						"codeSpace":{"type": "string"}
+					}
 				},
 				"sip:count":{
-					"$ref": "bridge.ext.json#/numberOrNil"
+			"type":"object"	,
+			"properties": {"value":{"type": ["number","null"]}		
+			
+			}
 				}
 			}
 		},
@@ -139,13 +206,16 @@
 				"type": "object",
 				"properties": {
 					"sip:acquisitionDate":{
-							"$ref": "bridge.ext.json#/numberOrNil"
+			"type":"object"	,
+			"properties": {"value":{"type": ["number","null"]}		
+			
+			}
 					},
 					"sip:acquisitionMethod":{
-							"$ref": "bridge.ext.json#/stringOrNil"
+							"$ref": "#/definitions/stringOrNil"
 					},				
 					"sip:source":{
-						"$ref": "bridge.ext.json#/Resource"						
+						"$ref": "#/definitions/Resource"						
 					},
 					"geometricShape":{
 						"$ref": "geomprimitives.schema.json#/MultiSurface"						
@@ -154,10 +224,10 @@
 						"$ref": "geomprimitives.schema.json#/PointCloud"
 					},
 					"layout":{
-						"$ref": "bridge.ext.json#/LayoutInfo"
+						"$ref": "#/definitions/LayoutInfo"
 					},
 					"georeference":{
-						"$ref": "bridge.ext.json#/GeoReference"
+						"$ref": "#/definitions/GeoReference"
 					}
 					
 				}
@@ -173,7 +243,8 @@
 					"type": "string"
 				},
 				"sip:pointFileSrsName":{
-					"$ref": "bridge.ext.json#/StringOrNil"
+					"type":"object",
+					"properties": {"value":{"type": ["string","null"]}}
 				}
 			}
 		},
@@ -186,9 +257,9 @@
 				"sip:layout":{
 					"type": "object",
 					"oneOf": [
-						{"$ref": "bridge.ext.json#/Size"},
-						{"$ref": "bridge.ext.json#/Spacing"},
-						{"$ref": "bridge.ext.json#/Quantity"}
+						{"$ref": "#/definitions/Size"},
+						{"$ref": "#/definitions/Spacing"},
+						{"$ref": "#/definitions/Quantity"}
 					]
 					
 				}
@@ -203,13 +274,21 @@
 						"$ref": "geomprimitives.schema.json#/MultiPoint"						
 				},
 				"sip:planarRectangularCoordinateSystem":{
-					"$ref": "bridge.ext.json#/codeType"
+					"type":"object",
+					"properties": {
+						"code":{"type": "string"},
+						"codeSpace":{"type": "string"}
+					}
 				},
 				"sip:trueNorthDirection":{
-					"$ref": "bridge.ext.json#/stringOrNil"
+					"type":"object",
+					"properties": {"value":{"type": ["string","null"]}}
 				},
 				"sip:scale":{
-					"$ref": "bridge.ext.json#/numberOrNil"
+			"type":"object"	,
+			"properties": {"value":{"type": ["number","null"]}		
+			
+			}
 				}
 				
 			}
@@ -226,16 +305,16 @@
                                         "type": "object",
                                         "properties": {
                                             "sip:bridgeCode": {
-												"$ref": "bridge.ext.json#/stringOrNil"
+												"$ref": "#/definitions/stringOrNil"
                                             },
                                             "sip:furigana": {
-												"$ref": "bridge.ext.json#/stringOrNil"
+												"$ref": "#/definitions/stringOrNil"
                                             },
                                             "sip:bridgeID": {
-												"$ref": "bridge.ext.json#/stringOrNil"
+												"$ref": "#/definitions/stringOrNil"
                                             },
                                             "sip:bridgeName": {
-												"$ref": "bridge.ext.json#/stringOrNil"
+												"$ref": "#/definitions/stringOrNil"
                                             }
                                         }
 						},
@@ -282,7 +361,7 @@
                                         "type": "object",
                                         "properties": {
                                             "sip:routeType": {
-												"$ref": "bridge.ext.json#/codeType"
+												"$ref": "#/definitions/codeType"
                                             }
                                         }
 						},
@@ -351,13 +430,13 @@
                                         "type": "object",
                                         "properties": {
                                             "sip:method": {
-												"$ref": "bridge.ext.json#/codeType"
+												"$ref": "#/definitions/codeType"
                                             },
                                             "sip:bearingType": {
-												"$ref": "bridge.ext.json#/codeType"
+												"$ref": "#/definitions/codeType"
                                             },
                                             "sip:expansionType": {
-												"$ref": "bridge.ext.json#/codeType"
+												"$ref": "#/definitions/codeType"
                                             },
                                             "sip:angleStart": {
                                                 "$ref": "#/definitions/numberOrNil"
@@ -377,7 +456,7 @@
                                         "type": "object",
                                         "properties": {
                                             "sip:guidelines": {
-												"$ref": "bridge.ext.json#/codeType"
+												"$ref": "#/definitions/codeType"
                                             }
                                         }
 						},
@@ -385,16 +464,16 @@
                                         "type": "object",
                                         "properties": {
                                             "sip:upperType": {
-												"$ref": "bridge.ext.json#/codeType"
+												"$ref": "#/definitions/codeType"
                                             },
                                             "sip:slabType": {
-												"$ref": "bridge.ext.json#/codeType"
+												"$ref": "#/definitions/codeType"
                                             },
                                             "sip:lowerType": {
-												"$ref": "bridge.ext.json#/codeType"
+												"$ref": "#/definitions/codeType"
                                             },
                                             "sip:foundationType": {
-												"$ref": "bridge.ext.json#/codeType"
+												"$ref": "#/definitions/codeType"
                                             }
                                         }
 						},
@@ -443,10 +522,10 @@
                                         "type": "object",
                                         "properties": {
                                             "sip:designLoad": {
-												"$ref": "bridge.ext.json#/codeType"
+												"$ref": "#/definitions/codeType"
                                             },
                                             "sip:grade": {
-												"$ref": "bridge.ext.json#/codeType"
+												"$ref": "#/definitions/codeType"
                                             },
                                             "sip:deadLoad": {
                                                 "$ref": "#/definitions/numberOrNil"
@@ -485,7 +564,7 @@
                                         "type": "object",
                                         "properties": {
                                             "sip:orgName": {
-												"$ref": "bridge.ext.json#/codeType"
+												"$ref": "#/definitions/codeType"
                                             }
                                         }
 						},
@@ -493,7 +572,7 @@
                                         "type": "object",
                                         "properties": {
                                             "sip:layerType": {
-												"$ref": "bridge.ext.json#/codeType"
+												"$ref": "#/definitions/codeType"
                                             }
                                         }
 						},
@@ -546,10 +625,10 @@
                                         "type": "object",
                                         "properties": {
                                             "sip:areaType": {
-												"$ref": "bridge.ext.json#/codeType"
+												"$ref": "#/definitions/codeType"
                                             },
                                             "sip:measureType": {
-												"$ref": "bridge.ext.json#/codeType"
+												"$ref": "#/definitions/codeType"
                                             },
                                             "sip:distanceFromCoas": {
                                                 "$ref": "#/definitions/stringOrNil"
@@ -585,7 +664,7 @@
                                                 "$ref": "#/definitions/booleanOrNil"
                                             },
                                             "sip:groundType": {
-												"$ref": "bridge.ext.json#/codeType"
+												"$ref": "#/definitions/codeType"
                                             }
                                           
                              }
@@ -594,7 +673,7 @@
                                         "type": "object",
                                         "properties": {
                                             "sip:paintingType": {
-												"$ref": "bridge.ext.json#/codeType"
+												"$ref": "#/definitions/codeType"
                                             }
                              }
 						},
@@ -639,23 +718,23 @@
 					"$ref": "#/definitions/stringOrNil"
 				},
 				"sip:supportNumber":{
-					"$ref": "bridge.ext.json#/stringOrNil"
+					"$ref": "#/definitions/stringOrNil"
 				},
 				"sip:componentName":{
-					"$ref": "bridge.ext.json#/codeType"
+					"$ref": "#/definitions/codeType"
 				},
 				"sip:componentNumber":{
-					"$ref": "bridge.ext.json#/stringOrNil"
+					"$ref": "#/definitions/stringOrNil"
 				},
 				"sip:compositionType":{
-					"$ref": "bridge.ext.json#/Composition"
+					"$ref": "#/definitions/Composition"
 				},
 
 				"sip:substanceType":{
-					"$ref": "bridge.ext.json#/codeType"
+					"$ref": "#/definitions/codeType"
 				},
 				"sip:constructionType":{
-					"$ref": "bridge.ext.json#/codeType"
+					"$ref": "#/definitions/codeType"
 				},
 				"sip:shape":{
 				"type":"array",
@@ -670,25 +749,25 @@
 	},	
 	"BridgeInstallation":{
 				"sip:spanNumber" :{
-					"$ref": "bridge.ext.json#/stringOrNil"
+					"$ref": "#/definitions/stringOrNil"
 				},
 				"sip:supportNumber":{
-					"$ref": "bridge.ext.json#/stringOrNil"
+					"$ref": "#/definitions/stringOrNil"
 				},
 				"sip:componentName":{
-					"$ref": "bridge.ext.json#/codeType"
+					"$ref": "#/definitions/codeType"
 				},
 				"sip:componentNumber":{
-					"$ref": "bridge.ext.json#/stringOrNil"
+					"$ref": "#/definitions/stringOrNil"
 				},
 				"sip:compositionType":{
-					"$ref": "bridge.ext.json#/codeType"
+					"$ref": "#/definitions/codeType"
 				},
 				"sip:substanceType":{
-					"$ref": "bridge.ext.json#/codeType"
+					"$ref": "#/definitions/codeType"
 				},
 				"sip:constructionType":{
-					"$ref": "bridge.ext.json#/codeType"
+					"$ref": "#/definitions/codeType"
 				},
 				"sip:shape":{
 				"type":"array",
