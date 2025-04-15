@@ -643,7 +643,7 @@
 				"sip:spanNumber" :"string",
 				"sip:supportNumber":"string",
 				"sip:componentName":"string",
-				"sip:componentNumber""string",
+				"sip:componentNumber":"string",
 				"sip:compositionType":{
 					"$ref": "#/definitions/Composition"
 				},
