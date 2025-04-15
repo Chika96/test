@@ -634,9 +634,7 @@
 		}
 		}	,		
 	"BridgeConstructiveElement":{
-				"sip:spanNumber" :{
-					"$ref": "#/definitions/stringOrNil"
-				},
+				"sip:spanNumber" :"string",
 				"sip:supportNumber":{
 					"$ref": "#/definitions/stringOrNil"
 				},
