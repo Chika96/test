@@ -1,6 +1,6 @@
 {
 	"type": "CityJSONExtension",
-	"name": "SIP_Bridge",
+	"name": "SIP",
 	"url": "https://raw.githubusercontent.com/Chika96/test/refs/heads/main/ext_bridge.ext.json",
 	"version": "1.0",
 	"versionCityJSON": "2.0",
@@ -9,683 +9,1904 @@
 		"measureOrNil": {
 			"type": "object",
 			"properties": {
-				  "value": { "type": ["number","null"] },
-				  "uom": { "type": "string" }
+				"value": {
+					"type": [
+						"number",
+						"null"
+					]
+				},
+				"uom": {
+					"type": "string"
+				}
 			},
-			"required": [ "value", "uom" ],
+			"required": [
+				"value",
+				"uom"
+			],
 			"additionalProperties": false
 		},
-		"codeType":{
-			"type":"object",
-			"properties": {
-				"code":{"type": "string"},
-				"codeSpace":{"type": "string"}
-			}
-		},
-		"stringOrNil":{
-			"type":"object"	,
-			"properties": {"value":{"type": ["string","null"]}		
-			
-			}
-		},
-		"numberOrNil":{
-			"type":"object"	,
-			"properties": {"value":{"type": ["number","null"]}		
-			
-			}
-		},
-		"booleanOrNil":{
-			"type":"object"	,
-			"properties": {"value":{"type": ["boolean","null"]}		
-			
-			}
-		},
-		"Resource":{
-			"type":"object",
-			"properties": {
-				"sip:title":{
-					"$ref": "#/definitions/stringOrNil"
-				},				
-				"sip:date":{
-					"$ref": "#/definitions/stringOrNil"
-				},
-				"sip:version":{
-					"$ref": "#/definitions/stringOrNil"
-				}				
-			}
-		},
-		"Composition":{
-			"type":"object",
-			"properties": {
-				"sip:concreteStrength":{
-					"$ref": "#/definitions/numberOrNil"
-				},
-				"sip:reinforcementMaterial":{
-					"$ref": "#/definitions/stringOrNil"
-				},
-				"sip:steelMaterial":{
-					"$ref": "#/definitions/stringOrNil"
-				},
-				"sip:PCsteelMaterial":{
-					"$ref": "#/definitions/"
-				}
-			}
-		},
-
-		"Layout":{
-			"type":"object",
-			"properties": {
-				"sip:type":{
-							"$ref": "#/definitions/codeType"
-				},
-				"sip:axis":{
-							"$ref": "#/definitions/codeType"
-				}
-			}
-		},
-		"Size":{
-			"type":"object",
-			"properties": {
-				"sip:type":{
-							"$ref": "#/definitions/codeType"
-				},
-				"sip:axis":{
-							"$ref": "#/definitions/codeType"
-				},
-				"length":{
-					"$ref": "#/definitions/measureOrNil"
-				},
-				"changeAxis":{
-							"$ref": "#/definitions/codeType"
-				},
-				"measurementPoint":{
-							"$ref": "#/definitions/codeType"
-				}
-			}
-		},
-		"Spacing":{
-			"type":"object",
-			"properties": {
-				"sip:type":{
-							"$ref": "#/definitions/codeType"
-				},
-				"sip:axis":{
-							"$ref": "#/definitions/codeType"
-				},
-				"length":{
-							"$ref": "#/definitions/codeType"
-				},
-				"measurementPoint":{
-							"$ref": "#/definitions/codeType"
-				}
-			}
-		},
-		"Quantity":{
-			"type":"object",
-			"properties": {
-				"sip:type":{
-					"$ref": "#/definitions/codeType"
-				},
-				"sip:axis":{
-					"$ref": "#/definitions/codeType"
-				},
-				"sip:count":{
-					"$ref": "#/definitions/numberOrNil"
-				}
-				}
-			},
-		"Shape":{
-				"type": "object",
-				"properties": {
-					"sip:acquisitionDate":{
-						"$ref": "#/definitions/numberOrNil"
-					},
-					"sip:acquisitionMethod":{
-						"$ref": "#/definitions/stringOrNil"
-					},				
-					"sip:source":{
-						"$ref": "#/definitions/Resource"						
-					},
-					"geometricShape":{
-						"$ref": "geomprimitives.schema.json#/MultiSurface"						
-					},
-					"pointCloud":{
-						"$ref": "geomprimitives.schema.json#/PointCloud"
-					},
-					"layout":{
-												"type": "array",
-												  "items": {
-												"oneOf": [
-														  { "$ref": "#/definitions/LayoutInfo" }
-												]
-												} 
-
-					},
-					"georeference":{
-						"$ref": "#/definitions/GeoReference"
-					}
-					
-				}
-			
-		},
-		"PointCloud":{
+		"codeType": {
 			"type": "object",
 			"properties": {
-				"sip:mimeType":{
+				"code": {
 					"type": "string"
 				},
-				"sip:pointFile":{
+				"codeSpace": {
 					"type": "string"
-				},
-				"sip:pointFileSrsName":{
-					"$ref": "#/definitions/stringOrNil"
-				}
-			}
-		},
-		"LayoutInfo":{
-			"type":"object",
-			"properties": {
-				"sip:offset":{
-					"$ref": "geomprimitives.schema.json#/MultiPoint"
-				},
-				"sip:layout":{
-					"type": "object",
-					"oneOf": [
-						{"$ref": "#/definitions/Size"},
-						{"$ref": "#/definitions/Spacing"},
-						{"$ref": "#/definitions/Quantity"}
-					]
-					
 				}
 				
-			}
-			
+			},
+			"required":["code"]
 		},
-		"GeoreferenceInfo":{
-			"type":"object",
+		"nullableString":{
+			"type": ["string", "null"]
+		},
+		"nullableNumber":{
+			"type": ["number", "null"]
+		},		
+		"nullableBoolean":{
+			"type": ["boolean", "null"]
+		},		
+		"nullableDate":{
+			"type": ["string", "null"]
+		},
+		"stringOrNil": {
+			"type": "object",
 			"properties": {
-				"sip:originCoord":{
-					"$ref": "geomprimitives.schema.json#/MultiPoint"						
-				},
-				"sip:planarRectangularCoordinateSystem":{
-					"$ref": "#/definitions/codeType"
-				},
-				"sip:trueNorthDirection":{
+				"value": { "$ref": "#/definitions/nullableString" }
+			}
+		},
+		"dateOrNil": {
+			"type": "object",
+			"properties": {
+				"value": { "$ref": "#/definitions/nullableDate" }
+			}
+
+		},
+		"numberOrNil": {
+			"type": "object",
+			"properties": {
+				"value": { "$ref": "#/definitions/nullableNumber" }
+			}
+		},
+		"booleanOrNil": {
+			"type": "object",
+			"properties": {
+				"value": { "$ref": "#/definitions/nullableBoolean" }
+			}
+
+		},
+		"Resource": {
+			"type": "object",
+			"properties": {
+				"sip:title": {
 					"$ref": "#/definitions/stringOrNil"
 				},
-				"sip:scale":{
+				"sip:date": {
+					"$ref": "#/definitions/dateOrNil"
+				},
+				"sip:version": {
+					"$ref": "#/definitions/stringOrNil"
+				}
+				
+			},
+			"additionalProperties": false,
+			"required":["sip:title"]
+		},
+		"Composition": {
+			"type": "object",
+			"properties": {
+				"sip:concreteStrength": {
+					"$ref": "#/definitions/numberOrNil"
+				},
+				"sip:reinforcementMaterial": {
+					"$ref": "#/definitions/codeType"
+				},
+				"sip:steelMaterial": {
+					"$ref": "#/definitions/codeType"
+				},
+				"sip:PCsteelMaterial": {
+					"$ref": "#/definitions/codeType"
+				}
+			}
+		},
+		"Layout": {
+			"type": "object",
+			"properties": {
+				"sip:type": {
+					"$ref": "#/definitions/codeType"
+				},
+				"sip:axis": {
+					"$ref": "#/definitions/codeType"
+				}
+			}
+		},
+		"Size": {
+			"type": "object",
+			"properties": {
+				"sip:type": {
+					"$ref": "#/definitions/codeType"
+				},
+				"sip:axis": {
+					"$ref": "#/definitions/codeType"
+				},
+				"length": {
+					"$ref": "#/definitions/measureOrNil"
+				},
+				"changeAxis": {
+					"$ref": "#/definitions/codeType"
+				},
+				"measurementPoint": {
+					"$ref": "#/definitions/codeType"
+				}
+			}
+		},
+		"Spacing": {
+			"type": "object",
+			"properties": {
+				"sip:type": {
+					"$ref": "#/definitions/codeType"
+				},
+				"sip:axis": {
+					"$ref": "#/definitions/codeType"
+				},
+				"length": {
+					"$ref": "#/definitions/measureOrNil"
+				},
+				"measurementPoint": {
+					"$ref": "#/definitions/codeType"
+				}
+			}
+		},
+		"Quantity": {
+			"type": "object",
+			"properties": {
+				"sip:type": {
+					"$ref": "#/definitions/codeType"
+				},
+				"sip:axis": {
+					"$ref": "#/definitions/codeType"
+				},
+				"sip:count": {
 					"$ref": "#/definitions/numberOrNil"
 				}
 			}
-				
+		},
+		"Shape": {
+			"type": "object",
+			"properties": {
+				"sip:acquisitionDate": {
+					"$ref": "#/definitions/dateOrNil"
+				},
+				"sip:acquisitionMethod": {
+					"$ref": "#/definitions/stringOrNil"
+				},
+				"sip:source": {
+					"$ref": "#/definitions/Resource"
+				},
+				"geometricShape": {
+					"$ref": "geomprimitives.schema.json#/MultiSurface"
+				},
+				"pointCloud": {
+					"$ref": "geomprimitives.schema.json#/PointCloud"
+				},
+				"layout": {
+					"type": "array",
+					"items": {
+						"oneOf": [
+							{
+								"$ref": "#/definitions/LayoutInfo"
+							}
+						]
+					}
+				},
+				"georeference": {
+					"$ref": "#/definitions/GeoReferenceInfo"
+				}
+			}
+		},
+		"PointCloud": {
+			"type": "object",
+			"properties": {
+				"sip:mimeType": {
+					"$ref": "#/definitions/codeType"
+				},
+				"sip:pointFile": {
+					"type": "string"
+				},
+				"sip:pointFileSrsName": {
+					"$ref": "#/definitions/stringOrNil"
+				}
+			}
+		},
+		"LayoutInfo": {
+			"type": "object",
+			"properties": {
+				"sip:offset": {
+					"$ref": "geomprimitives.schema.json#/MultiPoint"
+				},
+				"sip:layout": {
+					"type": "object",
+					"oneOf": [
+						{
+							"$ref": "#/definitions/Size"
+						},
+						{
+							"$ref": "#/definitions/Spacing"
+						},
+						{
+							"$ref": "#/definitions/Quantity"
+						}
+					]
+				}
+			}
+		},
+		"Drawing": {
+			"type": "object",
+			"properties": {
+				"sip:type": {
+					"$ref": "#/definitions/codeType"
+				},
+				"sip:file": {
+					"type": "string"
+				}
+			}
+		},
+		"Photo": {
+			"type": "object",
+			"properties": {
+				"sip:date": {
+					"$ref": "#/definitions/dateOrNil"
+				},
+				"sip:spanNumber": {
+					"$ref": "#/definitions/stringOrNil"
+				},
+				"sip:number": {
+					"$ref": "#/definitions/stringOrNil"
+				},
+				"sip:description": {
+					"$ref": "#/definitions/stringOrNil"
+				},
+				"sip:file": {
+					"type": "string"
+				},
+				"sip:memo": {
+					"$ref": "#/definitions/stringOrNil"
+				}
+			}
+		},
+		"ConditionAssessment": {
+			"type": "object",
+			"properties": {
+				"sip:condition": {
+					"$ref": "#/definitions/codeType"
+				},
+				"sip:countermeasureType": {
+					"$ref": "#/definitions/codeType"
+				}
+			}
+		},
+		"GeoreferenceInfo": {
+			"type": "object",
+			"properties": {
+				"sip:originCoord": {
+					"$ref": "geomprimitives.schema.json#/MultiPoint"
+				},
+				"sip:planarRectangularCoordinateSystem": {
+					"$ref": "#/definitions/codeType"
+				},
+				"sip:trueNorthDirection": {
+					"$ref": "#/definitions/numberOrNil"
+				},
+				"sip:scale": {
+					"$ref": "#/definitions/numberOrNil"
+				}
+			}
+		},
+		"BridgeLength": {
+			"type": "object",
+			"properties": {
+				"sip:length": {
+					"$ref": "#/definitions/measureOrNil"
+				}
+			}
+		},
+		"ClearSpan": {
+			"type": "object",
+			"properties": {
+				"sip:length": {
+					"$ref": "#/definitions/measureOrNil"
+				},
+				"sip:componentStartSide": {
+					"$ref": "#/definitions/stringOrNil"
+				},
+				"sip:componentEndSide": {
+					"$ref": "#/definitions/stringOrNil"
+				}
+			}
+		},
+		"SupportLength": {
+			"type": "object",
+			"properties": {
+				"sip:length": {
+					"$ref": "#/definitions/measureOrNil"
+				},
+				"sip:spanNumber": {
+					"$ref": "#/definitions/stringOrNil"
+				},
+				"sip:supportNumber": {
+					"$ref": "#/definitions/stringOrNil"
+				}
+			}
+		},
+		"BridgeIdInfo": {
+			"type": "object",
+			"properties": {
+				"sip:bridgeCode": {
+					"$ref": "#/definitions/stringOrNil"
+				},
+				"sip:furigana": {
+					"$ref": "#/definitions/stringOrNil"
+				},
+				"sip:bridgeID": {
+					"$ref": "#/definitions/stringOrNil"
+				},
+				"sip:bridgeName": {
+					"$ref": "#/definitions/stringOrNil"
+				}
+			}
+		},
+		"BridgeLocation": {
+			"type": "object",
+			"properties": {
+				"sip:locationFrom": {
+					"$ref": "#/definitions/stringOrNil"
+				},
+				"sip:locationTo": {
+					"$ref": "#/definitions/stringOrNil"
+				},
+				"sip:distanceMarkerFrom": {
+					"$ref": "#/definitions/measureOrNil"
+				},
+				"sip:distanceMarkerTo": {
+					"$ref": "#/definitions/measureOrNil"
+				},
+				"sip:startCoordinates": {
+					"$ref": "#/definitions/stringOrNil"
+				},
+				"sip:endCoordinates": {
+					"$ref": "#/definitions/stringOrNil"
+				},
+				"sip:startPos": {
+					"type": "array",
+					"items": {
+						"oneOf": [
+							{
+								"$ref": "geomprimitives.schema.json#/MultiPoint"
+							}
+						]
+					},
+					"sip:endPos": {
+						"type": "array",
+						"items": {
+							"oneOf": [
+								{
+									"$ref": "geomprimitives.schema.json#/MultiPoint"
+								}
+							]
+						}
+					}
+				}
+			}
+		},
+		"EmergencyTransportationRoute": {
+			"type": "object",
+			"properties": {
+				"sip:routeType": {
+					"$ref": "#/definitions/codeType"
+				}
+			}
+		},
+		"ImportanceCategory": {
+			"type": "object",
+			"properties": {
+				"sip:category": {
+					"$ref": "#/definitions/codeType"
+				}
+			}
+		},
+		"StartDateOfUse": {
+			"type": "object",
+			"properties": {
+				"sip:year": {
+					"$ref": "#/definitions/dateOrNil"
+				},
+				"sip:fiscalYear": {
+					"$ref": "#/definitions/dateOrNil"
+				},
+				"sip:yearMonth": {
+					"$ref": "#/definitions/dateOrNil"
+				},
+				"sip:date": {
+					"$ref": "#/definitions/dateOrNil"
+				}
+			}
+		},
+		"BridgeSpecifications": {
+			"type": "object",
+			"properties": {
+				"sip:method": {
+					"$ref": "#/definitions/codeType"
+				},
+				"sip:bearingType": {
+					"$ref": "#/definitions/codeType"
+				},
+				"sip:expansionType": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/codeType"
+					}
+				},
+				"sip:angleStart": {
+					"$ref": "#/definitions/numberOrNil"
+				},
+				"sip:angleEnd": {
+					"$ref": "#/definitions/numberOrNil"
+				},
+				"sip:upperSegregation": {
+					"$ref": "#/definitions/booleanOrNil"
+				},
+				"sip:remarks": {
+					"$ref": "#/definitions/stringOrNil"
+				}
+			}
+		},
+		"ApplicableGuidelines": {
+			"type": "object",
+			"properties": {
+				"sip:guidelines": {
+					"$ref": "#/definitions/codeType"
+				}
+			}
+		},
+		"BridgeType": {
+			"type": "object",
+			"properties": {
+				"sip:upperType": {
+					"$ref": "#/definitions/codeType"
+				},
+				"sip:slabType": {
+					"$ref": "#/definitions/codeType"
+				},
+				"sip:lowerType": {
+					"$ref": "#/definitions/codeType"
+				},
+				"sip:foundationType": {
+					"$ref": "#/definitions/codeType"
+				}
+			}
+		},
+		"RoadStructure": {
+			"type": "object",
+			"properties": {
+				"sip:totalWidth": {
+					"$ref": "#/definitions/measureOrNil"
+				},
+				"sip:effectiveWidth": {
+					"$ref": "#/definitions/measureOrNil"
+				},
+				"sip:coverWidthUp": {
+					"$ref": "#/definitions/measureOrNil"
+				},
+				"sip:sidewalkWidthUp": {
+					"$ref": "#/definitions/measureOrNil"
+				},
+				"sip:laneWidthUp": {
+					"$ref": "#/definitions/measureOrNil"
+				},
+				"sip:laneCountUp": {
+					"$ref": "#/definitions/numberOrNil"
+				},
+				"sip:laneWidthDown": {
+					"$ref": "#/definitions/measureOrNil"
+				},
+				"sip:laneCountDown": {
+					"$ref": "#/definitions/numberOrNil"
+				},
+				"sip:sidewalkWidthDown": {
+					"$ref": "#/definitions/measureOrNil"
+				},
+				"sip:coverWidthDown": {
+					"$ref": "#/definitions/measureOrNil"
+				},
+				"sip:centerStrip": {
+					"$ref": "#/definitions/measureOrNil"
+				},
+				"sip:medianStrip": {
+					"$ref": "#/definitions/measureOrNil"
+				}
+			}
+		},
+		"Load": {
+			"type": "object",
+			"properties": {
+				"sip:designLoad": {
+					"$ref": "#/definitions/codeType"
+				},
+				"sip:grade": {
+					"$ref": "#/definitions/codeType"
+				},
+				"sip:deadLoad": {
+					"$ref": "#/definitions/numberOrNil"
+				}
+			}
+		},
+		"StructuralInformation": {
+			"type": "object",
+			"properties": {
+				"sip:designMoment": {
+					"$ref": "#/definitions/numberOrNil"
+				},
+				"sip:designShear": {
+					"$ref": "#/definitions/numberOrNil"
+				},
+				"sip:upperReaction": {
+					"$ref": "#/definitions/numberOrNil"
+				},
+				"sip:unitWeight": {
+					"$ref": "#/definitions/numberOrNil"
+				}
+			}
+		},
+		"Route": {
+			"type": "object",
+			"properties": {
+				"sip:name": {
+					"$ref": "#/definitions/stringOrNil"
+				},
+				"sip:type": {
+					"$ref": "#/definitions/codeType"
+				}
+			}
+		},
+		"Administrator": {
+			"type": "object",
+			"properties": {
+				"sip:orgName": {
+					"$ref": "#/definitions/codeType"
+				}
+			}
+		},
+		"PresenceOfWaterproofingLayer": {
+			"type": "object",
+			"properties": {
+				"sip:layerType": {
+					"$ref": "#/definitions/codeType"
+				}
+			}
+		},
+		"TrafficVolume": {
+			"type": "object",
+			"properties": {
+				"sip:surveyYear": {
+					"$ref": "#/definitions/numberOrNil"
+				},
+				"sip:trafficDaytime12h": {
+					"$ref": "#/definitions/numberOrNil"
+				},
+				"sip:traffic24h": {
+					"$ref": "#/definitions/numberOrNil"
+				},
+				"sip:largeVehicleRate": {
+					"$ref": "#/definitions/numberOrNil"
+				}
+			}
+		},
+		"LoadLimit": {
+			"type": "object",
+			"properties": {
+				"sip:isLimited": {
+					"$ref": "#/definitions/booleanOrNil"
+				},
+				"sip:limitLoad": {
+					"$ref": "#/definitions/numberOrNil"
+				},
+				"sip:regulationYear": {
+					"$ref": "#/definitions/numberOrNil"
+				}
+			}
+		},
+		"ReinforcementInformation": {
+			"type": "object",
+			"properties": {
+				"sip:cover": {
+					"$ref": "#/definitions/numberOrNil"
+				},
+				"sip:rebarDiamiter": {
+					"$ref": "#/definitions/numberOrNil"
+				},
+				"sip:rebarSpacing": {
+					"$ref": "#/definitions/numberOrNil"
+				}
+			}
+		},
+		"SaltDamageClassification": {
+			"type": "object",
+			"properties": {
+				"sip:areaType": {
+					"$ref": "#/definitions/codeType"
+				},
+				"sip:measureType": {
+					"$ref": "#/definitions/codeType"
+				},
+				"sip:distanceFromCoas": {
+					"$ref": "#/definitions/stringOrNil"
+				}
+			}
+		},
+		"AsBuiltDrawings": {
+			"type": "object",
+			"properties": {
+				"sip:file": {
+					"$ref": "#/definitions/stringOrNil"
+				}
+			}
+		},
+		"CrossingConditions": {
+			"type": "object",
+			"properties": {
+				"sip:crossingConditions": {
+					"$ref": "#/definitions/stringOrNil"
+				}
+			}
+		},
+		"GeologicalConditions": {
+			"type": "object",
+			"properties": {
+				"sip:boringLog": {
+					"type": "string"
+				},
+				"sip:soilConstants": {
+					"$ref": "#/definitions/numberOrNil"
+				},
+				"sip:liquefactionExistence": {
+					"$ref": "#/definitions/booleanOrNil"
+				},
+				"sip:groundType": {
+					"$ref": "#/definitions/codeType"
+				}
+			}
+		},
+		"Painting": {
+			"type": "object",
+			"properties": {
+				"sip:paintingType": {
+					"$ref": "#/definitions/codeType"
+				}
+			}
+		},
+		"AdditionalNotes": {
+			"type": "object",
+			"properties": {
+				"sip:approachMethod": {
+					"$ref": "#/definitions/stringOrNil"
+				},
+				"sip:trafficRestriction": {
+					"$ref": "#/definitions/stringOrNil"
+				},
+				"sip:consultation": {
+					"$ref": "#/definitions/stringOrNil"
+				},
+				"sip:thirdPartyInspection": {
+					"$ref": "#/definitions/stringOrNil"
+				},
+				"sip:inspectionRoute": {
+					"$ref": "#/definitions/stringOrNil"
+				},
+				"sip:repairReinforcement": {
+					"$ref": "#/definitions/stringOrNil"
+				},
+				"sip:otherRemarks": {
+					"$ref": "#/definitions/stringOrNil"
+				}
+			}
+		},
+		"DamageLocation": {
+			"type": "object",
+			"properties": {
+				"constructionType": {
+					"$ref": "#/definitions/codeType"
+				},
+				"substance": {
+					"$ref": "#/definitions/codeType"
+				},
+				"componentName": {
+					"$ref": "#/definitions/codeType"
+				},
+				"elementNumber": {
+					"$ref": "#/definitions/stringOrNil"
+				}
+			}
+		},
+		"AssessmentBasis": {
+			"type": "object",
+			"properties": {
+				"component": {
+					"$ref": "#/definitions/codeType"
+				},
+				"photo": {
+					"$ref": "#/definitions/Photo"
+				}
+			}
+		},
+		"BridgeConditionStatus": {
+			"type": "object",
+			"properties": {
+				"sip:mainMemberConditionStatus": {
+					"$ref": "#/definitions/ConditionAssessment"
+				},
+				"sip:bearingExpansionConditionStatus": {
+					"$ref": "#/definitions/ConditionAssessment"
+				},
+				"sip:conditionRemarks": {
+					"$ref": "#/definitions/stringOrNil"
+				},
+				"sip:hasThirdPartyDamage": {
+					"$ref": "#/definitions/booleanOrNil"
+				},
+				"sip:overallInspectionResult": {
+					"$ref": "#/definitions/ConditionAssessment"
+				},
+				"sip:mainGirderAssessment": {
+					"$ref": "#/definitions/stringOrNil"
+				},
+				"sip:crossBeamAssessment": {
+					"$ref": "#/definitions/ConditionAssessment"
+				},
+				"sip:deckAssessments": {
+					"$ref": "#/definitions/ConditionAssessment"
+				},
+				"sip:abutmentAssessment": {
+					"$ref": "#/definitions/ConditionAssessment"
+				},
+				"sip:pierAssessment": {
+					"$ref": "#/definitions/ConditionAssessment"
+				},
+				"sip:bearingAssessment": {
+					"$ref": "#/definitions/ConditionAssessment"
+				},
+				"sip:expansionDeviceAssessment": {
+					"$ref": "#/definitions/ConditionAssessment"
+				},
+				"sip:railingGuardAssessment": {
+					"$ref": "#/definitions/ConditionAssessment"
+				},
+				"sip:pavementAssessment": {
+					"$ref": "#/definitions/ConditionAssessment"
+				},
+				"sip:assessmentBasis": {
+					"$ref": "#/definitions/AssessmentBasis"
+				},
+				"sip:damages": {
+					"type": "array",
+					"description": "The IDs of damages associated with this status.",
+					"items": {
+						"type": "string"
+					}
+				}
+			}
+		},
+		"PrimaryMemberConditionStatus": {
+			"type": "object",
+			"properties": {
+				"sip:spanNumber": {
+					"$ref": "#/definitions/stringOrNil"
+				},
+				"sip:constructionType": {
+					"$ref": "#/definitions/codeType"
+				},
+				"sip:substance": {
+					"$ref": "#/definitions/codeType"
+				},
+				"sip:componentName": {
+					"$ref": "#/definitions/codeType"
+				},
+				"sip:componentNumber": {
+					"$ref": "#/definitions/stringOrNil"
+				},
+				"sip:damageSeverityMax": {
+					"$ref": "#/definitions/codeType"
+				},
+				"sip:damageSeverityMin": {
+					"$ref": "#/definitions/codeType"
+				},
+				"sip:measureCategory": {
+					"$ref": "#/definitions/codeType"
+				},
+				"sip:damageType": {
+					"$ref": "#/definitions/codeType"
+				},
+				"sip:update": {
+					"$ref": "#/definitions/stringOrNil"
+				},
+				"sip:causeConfirmed": {
+					"$ref": "#/definitions/codeType"
+				},
+				"sip:causeEstimated": {
+					"$ref": "#/definitions/codeType"
+				},
+				"sip:condition": {
+					"$ref": "#/definitions/ConditionAssessment"
+				},
+				"sip:remarks": {
+					"$ref": "#/definitions/stringOrNil"
+				},
+				"sip:details": {
+					"type": "array",
+					"items": {
+						"photo": {
+							"$ref": "#/definitions/Photo"
+						}
+					}
+				},
+				"sip:damages": {
+					"type": "array",
+					"description": "The IDs of damages associated with this status.",
+					"items": {
+						"type": "string"
+					}
+				}
+			}
+		},
+		"sip:OtherStatusInfo": {
+			"type": "object",
+			"propertoes": {
+				"supportMeasureCategory": {
+					"$ref": "#/definitions/codeType"
+				},
+				"componentName": {
+					"$ref": "#/definitions/codeType"
+				},
+				"componentNumber": {
+					"$ref": "#/definitions/stringOrNil"
+				},
+				"elementNumber": {
+					"$ref": "#/definitions/stringOrNil"
+				},
+				"reason": {
+					"$ref": "#/definitions/stringOrNil"
+				},
+				"countermeasure": {
+					"$ref": "#/definitions/stringOrNil"
+				}
+			}
+		},
+		"sip:InspectionSummary": {
+			"type": "object",
+			"propertoes": {
+				"constructionType": {
+					"$ref": "#/definitions/codeType"
+				},
+				"substanceType": {
+					"$ref": "#/definitions/codeType"
+				},
+				"componentName": {
+					"$ref": "#/definitions/codeType"
+				},
+				"componentNumber": {
+					"$ref": "#/definitions/stringOrNil"
+				},
+				"lastInspectionDate": {
+					"$ref": "#/definitions/dateOrNil"
+				},
+				"lastInspectionResult": {
+					"$ref": "#/definitions/codeType"
+				},
+				"currentInspectionDate": {
+					"$ref": "#/definitions/dateOrNil"
+				},
+				"currentInspectionResult": {
+					"$ref": "#/definitions/codeType"
+				}
+			}
+		},
+		"OtherMemberConditionStatus": {
+			"type": "object",
+			"properties": {
+				"sip:spanNumber": {
+					"$ref": "#/definitions/stringOrNil"
+				},
+				"sip:constructionType": {
+					"$ref": "#/definitions/codeType"
+				},
+				"sip:substance": {
+					"$ref": "#/definitions/codeType"
+				},
+				"sip:componentName": {
+					"$ref": "#/definitions/codeType"
+				},
+				"sip:componentNumber": {
+					"$ref": "#/definitions/stringOrNil"
+				},
+				"sip:damageSeverityMax": {
+					"$ref": "#/definitions/codeType"
+				},
+				"sip:damageSeverityMin": {
+					"$ref": "#/definitions/codeType"
+				},
+				"sip:measureCategory": {
+					"$ref": "#/definitions/codeType"
+				},
+				"sip:damageType": {
+					"$ref": "#/definitions/codeType"
+				},
+				"sip:update": {
+					"$ref": "#/definitions/stringOrNil"
+				},
+				"sip:condition": {
+					"$ref": "#/definitions/ConditionAssessment"
+				},
+				"sip:remarks": {
+					"$ref": "#/definitions/stringOrNil"
+				},
+				"sip:details": {
+					"type": "array",
+					"items": {
+						"photo": {
+							"$ref": "#/definitions/Photo"
+						}
+					}
+				},
+				"sip:damages": {
+					"type": "array",
+					"description": "the IDs of Damages",
+					"items": {
+						"type": "string"
+					}
+				}
+			}
 		}
 	},
-	"extraAttributes":{
-		"Bridge":{
-			"sip:bridgeAttributes":{
-				"type":"array",				
-				"items":{
-					"type":"object",
-					"properties":{
+	"extraAttributes": {
+		"Bridge": {
+			"sip:bridgeAttributes": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
 						"sip:BridgeIdInfo": {
-                                        "type": "object",
-                                        "properties": {
-                                            "sip:bridgeCode": {
-												"$ref": "#/definitions/stringOrNil"
-                                            },
-                                            "sip:furigana": {
-												"$ref": "#/definitions/stringOrNil"
-                                            },
-                                            "sip:bridgeID": {
-												"$ref": "#/definitions/stringOrNil"
-                                            },
-                                            "sip:bridgeName": {
-												"$ref": "#/definitions/stringOrNil"
-                                            }
-                                        }
+							"$ref": "#/definitions/BridgeIdInfo"
 						},
 						"sip:BridgeLocation": {
-                                        "type": "object",
-                                        "properties": {
-                                            "sip:locationFrom": {
-                                                "$ref": "#/definitions/stringOrNil"
-                                            },
-                                            "sip:locationTo": {
-                                                "$ref": "#/definitions/stringOrNil"
-                                            },
-                                            "sip:distanceMarkerFrom": {
-                                                "$ref": "#/definitions/asureOrNil"
-                                            },
-                                            "sip:distanceMarkerTo": {
-                                                "$ref": "#/definitions/measureOrNil"
-                                            },
-                                            "sip:startCoordinates": {
-                                                "$ref": "#/definitions/stringOrNil"
-                                            },
-                                            "sip:endCoordinates": {
-                                                "$ref": "#/definitions/stringOrNil"
-                                            },
-                                            "sip:startPos":{
-												"type": "array",
-												  "items": {
-												"oneOf": [
-														  { "$ref": "geomprimitives.schema.json#/MultiPoint" }
-												]
-												} 
-											},
-										     "sip:endPos":{
-												"type": "array",
-												  "items": {
-												"oneOf": [
-														  { "$ref": "geomprimitives.schema.json#/MultiPoint" }
-												]
-												} 
-											}
-										  }
-                         },
-                         "sip:EmergencyTransportationRoute": {
-                                        "type": "object",
-                                        "properties": {
-                                            "sip:routeType": {
-												"$ref": "#/definitions/codeType"
-                                            }
-                                        }
+							"$ref": "#/definitions/BridgeLocation"
 						},
-                         "sip:BridgeLength": {
-                                        "type": "object",
-                                        "properties": {
-                                            "sip:length": {
-                                                "$ref": "#/definitions/measureOrNil"
-                                            }
-                                        }
-						},						
-                         "sip:ClearSpan": {
-                                        "type": "object",
-                                        "properties": {
-                                            "sip:length": {
-                                                "$ref": "#/definitions/measureOrNil"
-                                            },
-                                             "sip:componentStartSide": {
-                                                "$ref": "#/definitions/stringOrNil"
-                                            },
-                                             "sip:componentEndSide": {
-                                                "$ref": "#/definitions/stringOrNil"
-                                            }
-                                        }
+						"sip:EmergencyTransportationRoute": {
+							"$ref": "#/definitions/EmergencyTransportationRoute"
+						},
+						"sip:BridgeLength": {
+							"$ref": "#/definitions/BridgeLength"
+						},
+						"sip:ClearSpan": {
+							"$ref": "#/definitions/ClearSpan"
 						},
 						"sip:SupportLength": {
-                                        "type": "object",
-                                        "properties": {
-                                            "sip:length": {
-                                                "$ref": "#/definitions/measureOrNil"
-                                            },
-                                             "sip:spanNumber": {
-                                                "$ref": "#/definitions/stringOrNil"
-                                            },
-                                             "sip:supportNumber": {
-                                                "$ref": "#/definitions/stringOrNil"
-                                            }
-                                        }
+							"$ref": "#/definitions/SupportLength"
 						},
 						"sip:ImportanceCategory": {
-                                        "type": "object",
-                                        "properties": {
-                                            "sip:category": {
-                                                "type": "string"
-                                            }
-                                        }
+							"$ref": "#/definitions/ImportanceCategory"
 						},
 						"sip:StartDateOfUse": {
-                                        "type": "object",
-                                        "properties": {
-                                            "sip:year": {
-                                                "type": "string"
-                                            },
-                                            "sip:fiscalYear": {
-                                                "type": "string"
-                                            },
-                                            "sip:yearMonth": {
-                                                "type": "string"
-                                            },
-                                            "sip:date": {
-                                                "$ref": "#/definitions/stringOrNil"
-                                            }
-                                        }
+							"$ref": "#/definitions/StartDateOfUse"
 						},
 						"sip:BridgeSpecifications": {
-                                        "type": "object",
-                                        "properties": {
-                                            "sip:method": {
-												"$ref": "#/definitions/codeType"
-                                            },
-                                            "sip:bearingType": {
-												"$ref": "#/definitions/codeType"
-                                            },
-                                            "sip:expansionType": {
-												"$ref": "#/definitions/codeType"
-                                            },
-                                            "sip:angleStart": {
-                                                "$ref": "#/definitions/numberOrNil"
-                                            },
-                                            "sip:angleEnd": {
-                                                "$ref": "#/definitions/numberOrNil"
-                                            },
-                                            "sip:upperSegregation": {
-                                                "$ref": "#/definitions/booleanOrNil"
-                                            },
-                                            "sip:remarks": {
-                                                "$ref": "#/definitions/stringOrNil"
-                                            }
-                                        }
+							"$ref": "#/definitions/BridgeSpecifications"
 						},
 						"sip:ApplicableGuidelines": {
-                                        "type": "object",
-                                        "properties": {
-                                            "sip:guidelines": {
-												"$ref": "#/definitions/codeType"
-                                            }
-                                        }
+							"$ref": "#/definitions/ApplicableGuidelines"
 						},
 						"sip:BridgeType": {
-                                        "type": "object",
-                                        "properties": {
-                                            "sip:upperType": {
-												"$ref": "#/definitions/codeType"
-                                            },
-                                            "sip:slabType": {
-												"$ref": "#/definitions/codeType"
-                                            },
-                                            "sip:lowerType": {
-												"$ref": "#/definitions/codeType"
-                                            },
-                                            "sip:foundationType": {
-												"$ref": "#/definitions/codeType"
-                                            }
-                                        }
+							"$ref": "#/definitions/BridgeType"
 						},
 						"sip:RoadStructure": {
-                                        "type": "object",
-                                        "properties": {
-                                            "sip:totalWidth": {
-                                                "$ref": "#/definitions/measureOrNil"
-                                            },
-                                            "sip:effectiveWidth": {
-                                                "$ref": "#/definitions/measureOrNil"
-                                            },
-                                            "sip:coverWidthUp": {
-                                                "$ref": "#/definitions/measureOrNil"
-                                            },
-                                            "sip:sidewalkWidthUp": {
-                                                "$ref": "#/definitions/measureOrNil"
-                                            },
-                                            "sip:laneWidthUp": {
-                                                "$ref": "#/definitions/measureOrNil"
-                                            },
-                                            "sip:laneCountUp": {
-                                                "$ref": "#/definitions/numberOrNil"
-                                            },
-                                            "sip:laneWidthDown": {
-                                                "$ref": "#/definitions/measureOrNil"
-                                            },
-                                            "sip:laneCountDown": {
-                                                "$ref": "#/definitions/numberOrNil"
-                                            },
-                                            "sip:sidewalkWidthDown": {
-                                                "$ref": "#/definitions/measureOrNil"
-                                            },
-                                            "sip:coverWidthDown": {
-                                                "$ref": "#/definitions/measureOrNil"
-                                            },
-                                            "sip:centerStrip": {
-                                                "$ref": "#/definitions/measureOrNil"
-                                            },
-                                            "sip:medianStrip": {
-                                                "$ref": "#/definitions/measureOrNil"
-                                            }
-                                        }
+							"$ref": "#/definitions/RoadStructure"
 						},
 						"sip:Load": {
-                                        "type": "object",
-                                        "properties": {
-                                            "sip:designLoad": {
-												"$ref": "#/definitions/codeType"
-                                            },
-                                            "sip:grade": {
-												"$ref": "#/definitions/codeType"
-                                            },
-                                            "sip:deadLoad": {
-                                                "$ref": "#/definitions/numberOrNil"
-                                            }
-                                        }
+							"$ref": "#/definitions/Load"
 						},
 						"sip:StructuralInformation": {
-                                        "type": "object",
-                                        "properties": {
-                                            "sip:designMoment": {
-                                                "$ref": "#/definitions/numberOrNil"
-                                            },
-                                            "sip:designShear": {
-                                                "$ref": "#/definitions/numberOrNil"
-                                            },
-                                            "sip:upperReaction": {
-                                                "$ref": "#/definitions/numberOrNil"
-                                            },
-                                           "sip:unitWeight": {
-                                                "$ref": "#/definitions/numberOrNil"
-                                            }
-                            }
+							"$ref": "#/definitions/StructuralInformation"
 						},
 						"sip:Route": {
-                                        "type": "object",
-                                        "properties": {
-                                            "sip:name": {
-                                                "$ref": "#/definitions/stringOrNil"
-                                            },
-                                            "sip:type": {
-                                                "type": "string"
-                                            }
-                                        }
+							"$ref": "#/definitions/Route"
 						},
 						"sip:Administrator": {
-                                        "type": "object",
-                                        "properties": {
-                                            "sip:orgName": {
-												"$ref": "#/definitions/codeType"
-                                            }
-                                        }
+							"$ref": "#/definitions/Administrator"
 						},
 						"sip:PresenceOfWaterproofingLayer": {
-                                        "type": "object",
-                                        "properties": {
-                                            "sip:layerType": {
-												"$ref": "#/definitions/codeType"
-                                            }
-                                        }
+							"$ref": "#/definitions/PresenceOfWaterproofingLayer"
 						},
 						"sip:TrafficVolume": {
-                                        "type": "object",
-                                        "properties": {
-                                            "sip:surveyYear": {
-                                                "type": "string"
-                                            },
-                                            "sip:trafficDaytime12h": {
-                                                "$ref": "#/definitions/numberOrNil"
-                                            },
-                                            "sip:traffic24h": {
-                                                "$ref": "#/definitions/numberOrNil"
-                                            },
-                                           "sip:largeVehicleRate": {
-                                                "$ref": "#/definitions/numberOrNil"
-                                            }
-                            }
+							"$ref": "#/definitions/TrafficVolume"
 						},
 						"sip:LoadLimit": {
-                                        "type": "object",
-                                        "properties": {
-                                            "sip:isLimited": {
-                                                "$ref": "#/definitions/booleanOrNil"
-                                            },
-                                            "sip:limitLoad": {
-                                                "$ref": "#/definitions/numberOrNil"
-                                            },
-                                            "sip:regulationYear": {
-                                                "type": "string"
-                                            }
-                            }
+							"$ref": "#/definitions/LoadLimit"
 						},
 						"sip:ReinforcementInformation": {
-                                        "type": "object",
-                                        "properties": {
-                                            "sip:cover": {
-                                                "$ref": "#/definitions/numberOrNil"
-                                            },
-                                            "sip:rebarDiamiter": {
-                                                "$ref": "#/definitions/numberOrNil"
-                                            },
-                                            "sip:rebarSpacing": {
-                                                "$ref": "#/definitions/stringOrNil"
-                                            }
-                            }
+							"$ref": "#/definitions/ReinforcementInformation"
 						},
 						"sip:SaltDamageClassification": {
-                                        "type": "object",
-                                        "properties": {
-                                            "sip:areaType": {
-												"$ref": "#/definitions/codeType"
-                                            },
-                                            "sip:measureType": {
-												"$ref": "#/definitions/codeType"
-                                            },
-                                            "sip:distanceFromCoas": {
-                                                "$ref": "#/definitions/stringOrNil"
-                                            }
-                             }
+							"$ref": "#/definitions/SaltDamageClassification"
 						},
 						"sip:AsBuiltDrawings": {
-                                        "type": "object",
-                                        "properties": {
-                                            "sip:file": {
-                                                "$ref": "#/definitions/stringOrNil"
-                                            }
-                             }
+							"$ref": "#/definitions/AsBuiltDrawings"
 						},
 						"sip:CrossingConditions": {
-                                        "type": "object",
-                                        "properties": {
-                                            "sip:crossingConditions": {
-                                                "$ref": "#/definitions/stringOrNil"
-                                            }
-                             }
+							"$ref": "#/definitions/CrossingConditions"
 						},
 						"sip:GeologicalConditions": {
-                                        "type": "object",
-                                        "properties": {
-                                            "sip:boringLog": {
-                                                "type": "string"
-                                            },
-                                            "sip:soilConstants": {
-                                                "$ref": "#/definitions/numberOrNil"
-                                            },
-                                            "sip:liquefactionExistence": {
-                                                "$ref": "#/definitions/booleanOrNil"
-                                            },
-                                            "sip:groundType": {
-												"$ref": "#/definitions/codeType"
-                                            }
-                                          
-                             }
+							"$ref": "#/definitions/GeologicalConditions"
 						},
 						"sip:Painting": {
-                                        "type": "object",
-                                        "properties": {
-                                            "sip:paintingType": {
-												"$ref": "#/definitions/codeType"
-                                            }
-                             }
+							"$ref": "#/definitions/Painting"
 						},
 						"sip:AdditionalNotes": {
-                                        "type": "object",
-                                        "properties": {
-                                            "sip:approachMethod": {
-                                                "$ref": "#/definitions/stringOrNil"
-                                            },
-                                            "sip:trafficRestriction": {
-                                                "$ref": "#/definitions/numberOrNil"
-                                            },
-                                            "sip:consultation": {
-                                                "$ref": "#/definitions/booleanOrNil"
-                                            },
-                                            "sip:thirdPartyInspection": {
-                                                "$ref": "#/definitions/stringOrNil"
-                                            },
-                                            "sip:inspectionRoute": {
-                                                "$ref": "#/definitions/stringOrNil"
-                                            },
-                                            "sip:repairReinforcement": {
-                                                "$ref": "#/definitions/stringOrNil"
-                                            },
-                                            "sip:otherRemarks": {
-                                                "$ref": "#/definitions/stringOrNil"
-                                            }
-                             }
+							"$ref": "#/definitions/AdditionalNotes"
 						}
 					}
 				}
 			},
-			"sip:shape":{
-				"type":"array",
-				"items":{
-                       "$ref": "#/definitions/Shape"
+			"sip:shape": {
+				"type": "array",
+				"items": {
+					"$ref": "#/definitions/Shape"
 				}
-		}
-		}	,		
-	"BridgeConstructiveElement":{
-				"sip:spanNumber" :"string",
-				"sip:supportNumber":"string",
-				"sip:componentName":"string",
-				"sip:componentNumber":"string",
-				"sip:compositionType":{
-					"$ref": "#/definitions/Composition"
-				},
-
-				"sip:substanceType":{
-					"$ref": "#/definitions/codeType"
-				},
-				"sip:constructionType":{
-					"$ref": "#/definitions/codeType"
-				},
-				"sip:shape":{
-				"type":"array",
-				"items":{
-                       "$ref": "#/definitions/Shape"
-				}
-				},
-				"sip:subelement":{
-					"type":"string",
-					"description":"the ID of the children BuildingConstructiveElement"
-				}
-	},	
-	"BridgeInstallation":{
-				"sip:spanNumber" :"string",
-				"sip:supportNumber":"string",
-				"sip:componentName":"string",
-				"sip:componentNumber":"string",
-				"sip:compositionType":"string",
-				"sip:substanceType":"string",
-				"sip:constructionType":"string",
-				"sip:shape":{
-				"type":"array",
-				"items":{
-                       "$ref": "#/definitions/Shape"
-				}
+			}
 		},
-				"sip:subelement":{
-					"type":"string",
-					"description":"the ID of the children BuildingInstallation"
+		"BridgeConstructiveElement": {
+			"sip:spanNumber": {
+				"$ref": "#/definitions/stringOrNil"
+			},
+			"sip:supportNumber": {
+				"$ref": "#/definitions/stringOrNil"
+			},
+			"sip:componentName": {
+				"$ref": "#/definitions/codeType"
+			},
+			"sip:componentNumber": {
+				"$ref": "#/definitions/stringOrNil"
+			},
+			"sip:compositionType": {
+				"$ref": "#/definitions/Composition"
+			},
+			"sip:substanceType": {
+				"$ref": "#/definitions/codeType"
+			},
+			"sip:constructionType": {
+				"$ref": "#/definitions/codeType"
+			},
+			"sip:shape": {
+				"type": "array",
+				"items": {
+					"$ref": "#/definitions/Shape"
 				}
-	}
+			}
+		},
+		"BridgeInstallation": {
+			"sip:spanNumber": {
+				"$ref": "#/definitions/stringOrNil"
+			},
+			"sip:supportNumber": {
+				"$ref": "#/definitions/stringOrNil"
+			},
+			"sip:componentName": {
+				"$ref": "#/definitions/codeType"
+			},
+			"sip:componentNumber": {
+				"$ref": "#/definitions/stringOrNil"
+			},
+			"sip:compositionType": {
+				"$ref": "#/definitions/codeType"
+			},
+			"sip:substanceType": {
+				"$ref": "#/definitions/codeType"
+			},
+			"sip:constructionType": {
+				"$ref": "#/definitions/codeType"
+			},
+			"sip:shape": {
+				"type": "array",
+				"items": {
+					"$ref": "#/definitions/Shape"
+				}
+			}
+		}
 	},
-	"extraCityObjects": {},
-	"extraRootProperties": {},
-	"extraSemanticSurfaces": {}	
+	"extraCityObjects": {
+		"sip:Damage": {
+			"allOf": [
+				{
+					"$ref": "cityobjects.schema.json#/_AbstractCityObject"
+				},
+				{
+					"properties": {
+						"type": {
+							"enum": [
+								"sip:Damage"
+							]
+						},
+						"attributes": {
+							"type": "object",
+							"properties": {
+								"sip:type": {
+									"$ref": "#/definitions/codeType"
+								},
+								"sip:assessment": {
+									"$ref": "#/definitions/codeType"
+								},
+								"sip:length": {
+									"$ref": "#/definitions/numberOrNil"
+								},
+								"sip:width": {
+									"$ref": "#/definitions/numberOrNil"
+								},
+								"sip:pattern": {
+									"$ref": "#/definitions/stringOrNil"
+								},
+								"sip:category": {
+									"$ref": "#/definitions/codeType"
+								},
+								"sip:causeEstimated": {
+									"$ref": "#/definitions/stringOrNil"
+								},
+								"sip:progression": {
+									"$ref": "#/definitions/stringOrNil"
+								},
+								"sip:location": {
+									"$ref": "#/definitions/DamageLocation"
+								},
+								"sip:photo": {
+									"type": "array",
+									"items": {
+										"$ref": "#/definitions/Photo"
+									}
+								}
+							}
+						},
+						"sip:previousRecord": {
+							"type": "array",
+							"description": "the IDs of Damage",
+							"items": {
+								"type": "string"
+							}
+						},
+						"geometry": {
+							"type": "array",
+							"items": {
+								"oneOf": [
+									{
+										"$ref": "geomprimitives.schema.json#/MultiLineString"
+									},
+									{
+										"$ref": "geomprimitives.schema.json#/MultiSurface"
+									}
+								]
+							}
+						}
+					},
+					"required": [
+						"type",
+						"parents",
+						"geometry"
+					]
+				}
+			]
+		},
+		"sip:BridgeCheckLog": {
+			"allOf": [
+				{
+					"$ref": "cityobjects.schema.json#/_AbstractCityObject"
+				},
+				{
+					"properties": {
+						"type": {
+							"enum": [
+								"sip:BridgeCheckLog"
+							]
+						},
+						"attributes": {
+							"type": "object",
+							"properties": {
+								"sip:bridgeName": {
+									"$ref": "#/definitions/stringOrNil"
+								},
+								"sip:inspector": {
+									"$ref": "#/definitions/stringOrNil"
+								},
+								"sip:bridgeEvaluator": {
+									"$ref": "#/definitions/stringOrNil"
+								},
+								"sip:surveyMethod": {
+									"$ref": "#/definitions/stringOrNil"
+								},
+								"sip:inspectionMethod": {
+									"$ref": "#/definitions/stringOrNil"
+								},
+								"sip:reportUpdateDate": {
+									"$ref": "#/definitions/dateOrNil"
+								},
+								"sip:latestInspectionDate": {
+									"$ref": "#/definitions/dateOrNil"
+								},
+								"sip:assessmentResult": {
+									"type": "array",
+									"items": {
+										"sip:BridgeConditionStatus": {
+											"$ref": "#/definitions/BridgeConditionStatus"
+										},
+										"sip:PrimaryrMemberConditionStatus": {
+											"$ref": "#/definitions/PrimaryrMemberConditionStatus"
+										},
+										"sip:OtherMemberConditionStatus": {
+											"$ref": "#/definitions/OtherMemberConditionStatus"
+										}
+									}
+								},
+								"sip:statusAssessmentMethod": {
+									"$ref": "#/definitions/OtherStatusInfo"
+
+								},
+								"sip:spanGeneralDiagram": {
+									"type": "array",
+									"items": {
+										"$ref": "#/definitions/Drawing"
+									}
+								},
+								"sip:siteConditionPhoto": {
+									"type": "array",
+									"items": {
+										"$ref": "#/definitions/Photo"
+									}
+								}
+							}
+						}
+					}
+				}
+			]
+		},
+		"sip:Dataset":{
+			"allOf": [
+				{
+					"$ref": "cityobjects.schema.json#/CityObjectGroup"
+				},
+				{
+						"attributes": {
+							"type":"object",
+							"properties":{
+								"sip:description": {
+									"type":"string"
+								}
+							}
+						}
+				}
+			]			
+		},
+		"sip:RepairReinforcement": {
+			"allOf": [
+				{
+					"$ref": "cityobjects.schema.json#/_AbstractCityObject"
+				},
+				{
+					"properties": {
+						"type": {
+							"enum": [
+								"sip:RepairReinforcement"
+							]
+						},
+						"attributes": {
+							"type": "object",
+							"properties": {
+								"sip:date": {
+									"$ref": "#/definitions/dateOrNil"
+								},
+								"sip:substance": {
+									"$ref": "#/definitions/codeType"
+								},
+								"sip:measureCategory": {
+									"$ref": "#/definitions/codeType"
+								},
+								"sip:details": {
+									"$ref": "#/definitions/stringOrNil"
+								}
+							}
+						}
+					}
+				}
+			]
+		},
+		"sip:RestorationDesignDataset": {
+			"allOf": [
+				{
+					"$ref": "cityobjects.schema.json#/CityObjectGroup"
+				},
+				{
+					"properties": {
+						"type": {
+							"enum": [
+								"sip:RestorationDesignDataset"
+							]
+						},
+						"attributes": {
+							"type":"object",
+							"properties":{
+								"sip:description": {
+									"type":"string"
+								}
+							}
+						},
+						"sip:members": {
+							"type": "array",
+							"items": {
+								"type": "object",
+								"properties": {
+									"sip:BridgeLength": {
+										"$ref": "#/definitions/BridgeLength"
+									},
+									"sip:ClearSpan": {
+										"$ref": "#/definitions/ClearSpan"
+									},
+									"sip:SupportLength": {
+										"$ref": "#/definitions/SupportLength"
+									},
+									"sip:RoadStructure": {
+										"$ref": "#/definitions/RoadStructure"
+									},
+									"sip:BridgeType": {
+										"$ref": "#/definitions/BridgeType"
+									},
+									"sip:GeologicalConditions": {
+										"$ref": "#/definitions/GeologicalConditions"
+									},
+									"sip:Route": {
+										"$ref": "#/definitions/Route"
+									},
+									"sip:Shape": {
+										"$ref": "#/definitions/Shape"
+									},
+									"sip:ApplicableGuidelines": {
+										"$ref": "#/definitions/ApplicableGuidelines"
+									},
+									"sip:AsBuiltDrawings": {
+										"$ref": "#/definitions/SupportLength"
+									},
+									"sip:ReinforcementInformation": {
+										"$ref": "#/definitions/ReinforcementInformation"
+									},
+									"sip:Composition": {
+										"$ref": "#/definitions/Composition"
+									},
+									"sip:StructuralInformation": {
+										"$ref": "#/definitions/StructuralInformation"
+									},
+									"sip:ImportanceCategory": {
+										"$ref": "#/definitions/ImportanceCategory"
+									},
+									"sip:StartDateOfUse": {
+										"$ref": "#/definitions/StartDateOfUse"
+									},
+									"sip:Load": {
+										"$ref": "#/definitions/Load"
+									}
+								}
+							}
+						}
+					}
+				}
+			]
+		},
+		"sip:RepairDesignDataset": {
+			"allOf": [
+				{
+					"$ref": "cityobjects.schema.json#/CityObjectGroup"
+				},
+				{
+					"properties": {
+						"type": {
+							"enum": [
+								"sip:RepairDesignDataset"
+							]
+						},
+						"attributes": {
+							"type":"object",
+							"properties":{
+								"sip:description": {
+									"type":"string"
+								}
+							}
+						},
+						"sip:members": {
+							"type": "array",
+							"items": {
+								"type": "object",
+								"properties": {
+									"sip:BridgeLength": {
+										"$ref": "#/definitions/BridgeLength"
+									},
+									"sip:RoadStructure": {
+										"$ref": "#/definitions/RoadStructure"
+									},
+									"sip:BridgeType": {
+										"$ref": "#/definitions/BridgeType"
+									},
+									"sip:StartDateOfUse": {
+										"$ref": "#/definitions/StartDateOfUse"
+									},
+									"sip:ApplicableGuidelines": {
+										"$ref": "#/definitions/ApplicableGuidelines"
+									},
+									"sip:Load": {
+										"$ref": "#/definitions/Load"
+									},
+									"sip:PresenceOfWaterproofingLayer": {
+										"$ref": "#/definitions/PresenceOfWaterproofingLayer"
+									},
+									"sip:SaltDamageClassification": {
+										"$ref": "#/definitions/SaltDamageClassification"
+									},
+									"sip:CrossingConditions": {
+										"$ref": "#/definitions/CrossingConditions"
+									},
+									"sip:TrafficVolume": {
+										"$ref": "#/definitions/TrafficVolume"
+									},
+									"sip:BridgeCheckLog": {
+										"$ref": "#/definitions/BridgeCheckLog"
+									},
+									"sip:Composition": {
+										"$ref": "#/definitions/Composition"
+									},
+									"sip:RepairReinforcement": {
+										"$ref": "#/definitions/RepairReinforcement"
+									},
+									"sip:Shape": {
+										"$ref": "#/definitions/Shape"
+									},
+									"sip:Painting": {
+										"$ref": "#/definitions/Painting"
+									}
+								}
+							}
+						}
+					}
+				}
+			]
+		},
+		"sip:MaintenancePlanDataset": {
+			"allOf": [
+				{
+					"$ref": "cityobjects.schema.json#/CityObjectGroup"
+				},
+				{
+					"properties": {
+						"type": {
+							"enum": [
+								"sip:MaintenancePlanDataset"
+							]
+						},
+						"attributes": {
+							"type":"object",
+							"properties":{
+								"sip:description": {
+									"type":"string"
+								}
+							}
+						},
+						"sip:members": {
+							"type": "array",
+							"items": {
+								"type": "object",
+								"properties": {
+									"sip:BridgeLength": {
+										"$ref": "#/definitions/BridgeLength"
+									},
+									"sip:RoadStructure": {
+										"$ref": "#/definitions/RoadStructure"
+									},
+									"sip:BridgeType": {
+										"$ref": "#/definitions/BridgeType"
+									},
+									"sip:StartDateOfUse": {
+										"$ref": "#/definitions/StartDateOfUse"
+									},
+									"sip:ApplicableGuidelines": {
+										"$ref": "#/definitions/ApplicableGuidelines"
+									},
+									"sip:Load": {
+										"$ref": "#/definitions/Load"
+									},
+									"sip:PresenceOfWaterproofingLayer": {
+										"$ref": "#/definitions/PresenceOfWaterproofingLayer"
+									},
+									"sip:SaltDamageClassification": {
+										"$ref": "#/definitions/SaltDamageClassification"
+									},
+									"sip:CrossingConditions": {
+										"$ref": "#/definitions/CrossingConditions"
+									},
+									"sip:Route": {
+										"$ref": "#/definitions/Route"
+									},
+									"sip:EmergencyTransportationRoute": {
+										"$ref": "#/definitions/EmergencyTransportationRoute"
+									},
+									"sip:TrafficVolume": {
+										"$ref": "#/definitions/TrafficVolume"
+									},
+									"sip:Composition": {
+										"$ref": "#/definitions/Composition"
+									},
+									"sip:BridgeCheckLog": {
+										"$ref": "#/definitions/BridgeCheckLog"
+									},
+									"sip:RepairReinforcement": {
+										"$ref": "#/definitions/RepairReinforcement"
+									},
+									"sip:Shape": {
+										"$ref": "#/definitions/Shape"
+									},
+									"sip:Painting": {
+										"$ref": "#/definitions/Painting"
+									}
+								}
+							}
+						}
+					}
+				}
+			]
+		},
+		"sip:ReinforcementDesignDataset": {
+			"allOf": [
+				{
+					"$ref": "cityobjects.schema.json#/CityObjectGroup"
+				},
+				{
+					"properties": {
+						"type": {
+							"enum": [
+								"sip:ReinforcementDesignDataset"
+							]
+						},
+						"attributes": {
+							"type":"object",
+							"properties":{
+								"sip:description": {
+									"type":"string"
+								}
+							}
+						},
+						"sip:members": {
+							"type": "array",
+							"items": {
+								"type": "object",
+								"properties": {
+									"sip:BridgeLength": {
+										"$ref": "#/definitions/BridgeLength"
+									},
+									"sip:RoadStructure": {
+										"$ref": "#/definitions/RoadStructure"
+									},
+									"sip:BridgeType": {
+										"$ref": "#/definitions/BridgeType"
+									},
+									"sip:StartDateOfUse": {
+										"$ref": "#/definitions/StartDateOfUse"
+									},
+									"sip:ApplicableGuidelines": {
+										"$ref": "#/definitions/ApplicableGuidelines"
+									},
+									"sip:Load": {
+										"$ref": "#/definitions/Load"
+									},
+									"sip:PresenceOfWaterproofingLayer": {
+										"$ref": "#/definitions/PresenceOfWaterproofingLayer"
+									},
+									"sip:SaltDamageClassification": {
+										"$ref": "#/definitions/SaltDamageClassification"
+									},
+									"sip:CrossingConditions": {
+										"$ref": "#/definitions/CrossingConditions"
+									},
+									"sip:Route": {
+										"$ref": "#/definitions/Route"
+									},
+									"sip:EmergencyTransportationRoute": {
+										"$ref": "#/definitions/EmergencyTransportationRoute"
+									},
+									"sip:ImportanceCategory": {
+										"$ref": "#/definitions/ImportanceCategory"
+									},
+									"sip:TrafficVolume": {
+										"$ref": "#/definitions/TrafficVolume"
+									},
+									"sip:GeologicalConditions": {
+										"$ref": "#/definitions/GeologicalConditions"
+									},
+									"sip:Composition": {
+										"$ref": "#/definitions/Composition"
+									},
+									"sip:BridgeCheckLog": {
+										"$ref": "#/definitions/BridgeCheckLog"
+									},
+									"sip:RepairReinforcement": {
+										"$ref": "#/definitions/RepairReinforcement"
+									},
+									"sip:Shape": {
+										"$ref": "#/definitions/Shape"
+									},
+									"sip:Painting": {
+										"$ref": "#/definitions/Painting"
+									}
+								}
+							}
+						}
+					}
+				}
+			]
+		},
+		"sip:InspectionResultDataset": {
+			"allOf": [
+				{
+					"$ref": "cityobjects.schema.json#/CityObjectGroup"
+				},
+				{
+					"properties": {
+						"type": {
+							"enum": [
+								"sip:InspectionResultDataset"
+							]
+						},
+						"attributes": {
+							"type":"object",
+							"properties":{
+								"sip:description": {
+									"type":"string"
+								}
+							}
+						},
+						"members": {
+							"type": "array",
+							"items": {
+								"type": "object",
+								"properties": {
+									"sip:Table1": {
+										"type": "object",
+										"properties": {
+											"sip:TrafficVolume": {
+												"$ref": "#/definitions/numberOrNil"
+											},
+											"sip:LoadLimit": {
+												"$ref": "#/definitions/LoadLimit"
+											},
+											"sip:BridgeType": {
+												"$ref": "#/definitions/BridgeType"
+											},
+											"sip:BridgeSpecifications": {
+												"$ref": "#/definitions/BridgeSpecifications"
+											},
+											"sip:StartDateOfUse": {
+												"$ref": "#/definitions/StartDateOfUse"
+											},
+											"sip:BridgeLength": {
+												"$ref": "#/definitions/BridgeLength"
+											},
+											"sip:Load": {
+												"$ref": "#/definitions/Load"
+											},
+											"sip:AdditionalNotes": {
+												"$ref": "#/definitions/AdditionalNotes"
+											},
+											"sip:ApplicableGuidelines": {
+												"$ref": "#/definitions/ApplicableGuidelines"
+											},
+											"sip:CrossingConditions": {
+												"$ref": "#/definitions/CrossingConditions"
+											},
+											"sip:SaltDamageClassification": {
+												"$ref": "#/definitions/SaltDamageClassification"
+											},
+											"sip:ImportanceCategory": {
+												"$ref": "#/definitions/ImportanceCategory"
+											},
+											"sip:PresenceOfWaterproofingLayer": {
+												"$ref": "#/definitions/PresenceOfWaterproofingLayer"
+											},
+											"sip:BridgeConditionStatus": {
+												"$ref": "#/definitions/BridgeConditionStatus"
+											}
+										}
+									},
+									"sip:Table2": {
+										"type": "object",
+										"properties": {
+											"sip:spanNumber": {
+												"$ref": "#/definitions/stringOrNil"
+											},
+											"sip:Drawing": {
+												"type": "array",
+												"items": {
+													"$ref": "#/definitions/Drawing"
+												}
+											}
+										}
+									},
+									"sip:Table3": {
+										"type": "object",
+										"properties": {
+											"sip:spanNumber": {
+												"$ref": "#/definitions/stringOrNil"
+											},
+											"sip:Photo": {
+												"type": "array",
+												"items": {
+													"$ref": "#/definitions/Photo"
+												}
+											}
+										}
+									},
+									"sip:Table4": {
+										"type": "object",
+										"properties": {
+											"sip:spanNumber": {
+												"$ref": "#/definitions/stringOrNil"
+											},
+											"sip:Drawing": {
+												"type": "array",
+												"items": {
+													"$ref": "#/definitions/Drawing"
+												}
+											}
+										}
+									},
+									"sip:Table5": {
+										"type": "object",
+										"properties": {
+											"sip:spanNumber": {
+												"$ref": "#/definitions/stringOrNil"
+											},
+											"sip:damages": {
+												"type": "array",
+												"description": "the IDs of Damages",
+												"items": {
+													"type": "string"
+												}
+											}
+										}
+									},
+									"sip:Table6": {
+										"type": "object",
+										"properties": {
+											"sip:spanNumber": {
+												"$ref": "#/definitions/stringOrNil"
+											},
+											"sip:Photo": {
+												"type": "array",
+												"items": {
+													"$ref": "#/definitions/Photo"
+												}
+											}
+										}
+									},
+									"sip:Table7": {
+										"type": "object",
+										"properties": {
+											"sip:spanNumber": {
+												"$ref": "#/definitions/stringOrNil"
+											},
+											"sip:damages": {
+												"type": "array",
+												"description": "the IDs of Damages",
+												"items": {
+													"type": "string"
+												}
+											}
+										}
+									},
+									"sip:Table8": {
+										"type": "object",
+										"properties": {
+											"sip:spanNumber": {
+												"$ref": "#/definitions/stringOrNil"
+											},
+											"sip:damages": {
+												"type": "array",
+												"description": "the IDs of Damages",
+												"items": {
+													"type": "string"
+												}
+											}
+										}
+									},
+									"sip:Table9": {
+										"type": "object",
+										"properties": {
+											"attributes": {
+											},
+											"sip:spanNumber": {
+												"$ref": "#/definitions/stringOrNil"
+											},
+											"sip:PrimaryMemberConditionStatus": {
+												"$ref": "#/definitions/PrimaryMemberConditionStatus"
+											}
+										}
+									},
+									"sip:Table10": {
+										"type": "object",
+										"properties": {
+											"sip:spanNumber": {
+												"$ref": "#/definitions/stringOrNil"
+											},
+											"sip:OtherMemberConditionStatus": {
+												"$ref": "#/definitions/OtherMemberConditionStatus"
+											}
+										}
+									},
+									"sip:Table11": {
+										"type": "object",
+										"properties": {
+											"sip:spanNumber": {
+												"$ref": "#/definitions/stringOrNil"
+											},
+											"sip:InspectionSummary": {
+												"type": "array",
+												"items": {
+													"$ref": "#/definitions/InspectionSummary"
+												}
+											}
+										}
+									},
+									"sip:Table12": {
+										"type": "object",
+										"properties": {
+											"sip:spanNumber": {
+												"$ref": "#/definitions/stringOrNil"
+											},
+											"sip:OtherStatusInfo": {
+												"type": "array",
+												"items": {
+													"$ref": "#/definitions/OtherStatusInfo"
+												}
+											}
+										}
+									},
+									"sip:Table13": {
+										"type": "object",
+										"properties": {
+											"sip:spanNumber": {
+												"$ref": "#/definitions/stringOrNil"
+											},
+											"sip:MemberConditionStatus": {
+												"type": "array",
+												"items": {
+													"sip:MemberConditionStatus": {
+														"type": "object",
+														"oneOf": [
+															{"$ref": "#/definitions/PrimaryConditionStatus"},
+															{"$ref": "#/definitions/BridgeConditionStatus"}
+														]
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			]
+		}
+	},
+	"extraRootProperties": {
+	},
+	"extraSemanticSurfaces": {
+	}
 }
