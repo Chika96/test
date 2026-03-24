@@ -379,7 +379,10 @@
 					"$ref": "#/definitions/sip:Resource"
 				},
 				"sip:photo": {
-					"$ref": "#/definitions/sip:Photo"
+							"anyOf":[
+								{"$ref": "#/definitions/sip:Photo"},
+								{"type":"string","description":"id of Photo"}
+							]
 				},
 				"sip:spanNumber": {
 					"$ref": "#/definitions/stringOrNil"
@@ -1052,7 +1055,10 @@
 					"$ref": "#/definitions/sip:Resource"
 				},
 				"sip:drawing": {
-					"$ref": "#/definitions/sip:Drawing"
+					"anyOf":[
+						{"$ref": "#/definitions/sip:Drawing"},
+						{"type":"string","description":"id of Drawing"}
+					]
 				}
 			},
 			"required": [
@@ -1072,7 +1078,10 @@
 					"$ref": "#/definitions/sip:Resource"
 				},
 				"sip:drawing": {
-					"$ref": "#/definitions/sip:Drawing"
+					"anyOf":[
+						{"$ref": "#/definitions/sip:Drawing"},
+						{"type":"string","description":"id of Drawing"}
+					]
 				}
 			}
 		},
@@ -1089,7 +1098,10 @@
 					"$ref": "#/definitions/sip:Resource"
 				},
 				"sip:drawing": {
-					"$ref": "#/definitions/sip:Drawing"
+					"anyOf":[
+						{"$ref": "#/definitions/sip:Drawing"},
+						{"type":"string","description":"id of Drawing"}
+					]
 				}
 			}
 		},
@@ -1106,7 +1118,10 @@
 					"$ref": "#/definitions/sip:Resource"
 				},
 				"sip:drawing": {
-					"$ref": "#/definitions/sip:Drawing"
+					"anyOf":[
+						{"$ref": "#/definitions/sip:Drawing"},
+						{"type":"string","description":"id of Drawing"}
+					]
 				}
 			}
 		},
@@ -1593,7 +1608,10 @@
 					"$ref": "#/definitions/sip:Resource"
 				},
 				"sip:photo": {
-					"$ref": "#/definitions/sip:Photo"
+							"anyOf":[
+								{"$ref": "#/definitions/sip:Photo"},
+								{"type":"string","description":"id of Photo"}
+							]
 				},
 				"sip:spanNumber": {
 					"$ref": "#/definitions/stringOrNil"
@@ -1622,7 +1640,10 @@
 					"$ref": "#/definitions/sip:Resource"
 				},
 				"sip:drawing": {
-					"$ref": "#/definitions/sip:Drawing"
+					"anyOf":[
+						{"$ref": "#/definitions/sip:Drawing"},
+						{"type":"string","description":"id of Drawing"}
+					]
 				}
 			},
 			"required": [
@@ -2052,29 +2073,16 @@
 							"$ref": "#/definitions/sip:LongitudinalSlope"
 						},
 						"sip:BridgePhoto": {
-							"anyOf":[
-								{"$ref": "#/definitions/sip:BridgePhoto"},
-								{"type":"string","description":"id of BridgePhoto"}
-							]
+							"$ref": "#/definitions/sip:BridgePhoto"
 						},
 						"sip:BridgeDrawing": {
-							"anyOf":[
-								{"$ref": "#/definitions/sip:BridgeDrawing"},
-								{"type":"string","description":"id of BridgeDrawing"}
-							]
+							"$ref": "#/definitions/sip:BridgeDrawing"
 						},
 						"sip:SpanGeneralDiagrams": {
-							"anyOf":[
-								{"$ref": "#/definitions/sip:SpanGeneralDiagrams"},
-								{"type":"string","description":"id of SpanGeneralDiagrams"}
-							]
-							
+							"$ref": "#/definitions/sip:SpanGeneralDiagrams"
 						},
 						"sip:AssemblyDrawings": {
-							"anyOf":[
-								{"$ref": "#/definitions/sip:AssemblyDrawings"},
-								{"type":"string","description":"id of AssemblyDrawings"}
-							]
+							"$ref": "#/definitions/sip:AssemblyDrawings"
 						},
 						"sip:CodeAttribute": {
 							"$ref": "#/definitions/sip:CodeAttribute"
@@ -2217,29 +2225,17 @@
 							"$ref": "#/definitions/sip:Painting"
 						},
 						"sip:BridgePhoto": {
-							"anyOf":[
-								{"$ref": "#/definitions/sip:BridgePhoto"},
-								{"type":"string","description":"id of photo"}
-							]
+							"$ref": "#/definitions/sip:BridgePhoto"
 						},
 						"sip:BridgeDrawing": {
-							"anyOf":[
-								{"$ref": "#/definitions/sip:BridgeDrawing"},
-								{"type":"string","description":"id of drawing"}
-							]
+							"$ref": "#/definitions/sip:BridgeDrawing"
 						},
 						"sip:SpanGeneralDiagrams": {
-							"anyOf":[
-								{"$ref": "#/definitions/sip:SpanGeneralDiagrams"},
-								{"type":"string","description":"id of drawing"}
-							]
+							"$ref": "#/definitions/sip:SpanGeneralDiagrams"
 							
 						},
 						"sip:AssemblyDrawings": {
-							"anyOf":[
-								{"$ref": "#/definitions/sip:AssemblyDrawings"},
-								{"type":"string","description":"id of drawing"}
-							]
+							"$ref": "#/definitions/sip:AssemblyDrawings"
 						},
 						"sip:RoadSurfaceType": {
 							"$ref": "#/definitions/sip:RoadSurfaceType"
@@ -2358,16 +2354,10 @@
 							"$ref": "#/definitions/sip:DoubleAttribute"
 						},
 						"sip:BridgePhoto": {
-							"anyOf":[
-								{"$ref": "#/definitions/sip:BridgePhoto"},
-								{"type":"string","description":"id of photo"}
-							]
+							"$ref": "#/definitions/sip:BridgePhoto"
 						},
 						"sip:BridgeDrawing": {
-							"anyOf":[
-								{"$ref": "#/definitions/sip:BridgeDrawing"},
-								{"type":"string","description":"id of drawing"}
-							]
+							"$ref": "#/definitions/sip:BridgeDrawing"
 						},
 						"sip:InspectionResult": {
 							"$ref": "#/definitions/sip:InspectionResult"
@@ -2462,16 +2452,10 @@
 							"$ref": "#/definitions/sip:InspectionResult"
 						},
 						"sip:BridgePhoto": {
-							"anyOf":[
-								{"$ref": "#/definitions/sip:BridgePhoto"},
-								{"type":"string","description":"id of photo"}
-							]
+								"$ref": "#/definitions/sip:BridgePhoto"
 						},
 						"sip:BridgeDrawing": {
-							"anyOf":[
-								{"$ref": "#/definitions/sip:BridgeDrawing"},
-								{"type":"string","description":"id of drawing"}
-							]
+							"$ref": "#/definitions/sip:BridgeDrawing"
 						},
 						"sip:MemberConditionStatus": {
 							"$ref": "#/definitions/sip:MemberConditionStatus"
@@ -2507,7 +2491,7 @@
 		}
 	},
 	"extraCityObjects": {
-		"Damage": {
+		"+Damage": {
 			"allOf": [
 				{
 					"$ref": "cityobjects.schema.json#/_AbstractCityObject"
@@ -2516,7 +2500,7 @@
 					"properties": {
 						"type": {
 							"enum": [
-								"Damage"
+								"+Damage"
 							]
 						},
 						"attributes": {
@@ -2545,16 +2529,11 @@
 										"$ref": "#/definitions/sip:DamageDetails"
 									},
 									"sip:DamagePhoto": {
-										"anyOf":[
-										{"$ref": "#/definitions/sip:DamagePhoto"},
-										{"type":"string","description":"id of DamagePhoto"}
-										]
+										"$ref": "#/definitions/sip:DamagePhoto"
+										
 									},
 									"sip:DamageDrawing": {
-										"anyOf":[
-										{"$ref": "#/definitions/sip:DamageDrawing"},
-										{"type":"string","description":"id of DamageDrawing"}
-										]
+										"$ref": "#/definitions/sip:DamageDrawing"
 									}
 								}
 							}
@@ -2597,7 +2576,7 @@
 				}
 			]
 		},
-		"BridgeCheckLog": {
+		"+BridgeCheckLog": {
 			"allOf": [
 				{
 					"$ref": "cityobjects.schema.json#/_AbstractCityObject"
@@ -2606,7 +2585,7 @@
 					"properties": {
 						"type": {
 							"enum": [
-								"BridgeCheckLog"
+								"+BridgeCheckLog"
 							]
 						},
 						"attributes": {
@@ -2645,24 +2624,33 @@
 				}
 			]
 		},
-		"Dataset": {
+		"+Dataset": {
 			"allOf": [
 				{
 					"$ref": "cityobjects.schema.json#/CityObjectGroup"
 				},
 				{
-					"attributes": {
-						"type": "object",
-						"properties": {
-							"sip:description": {
+					"properties":{
+						"type":{
+							"enum":[
+								"+Dataset"
+							]
+						},
+						"attributes": {
+							"type": "object",
+							"properties": {
+								"sip:description": {
 								"type": "string"
 							}
 						}
+					}						
+						
 					}
+
 				}
 			]
 		},
-		"RepairReinforcement": {
+		"+RepairReinforcement": {
 			"allOf": [
 				{
 					"$ref": "cityobjects.schema.json#/_AbstractCityObject"
@@ -2671,7 +2659,7 @@
 					"properties": {
 						"type": {
 							"enum": [
-								"RepairReinforcement"
+								"+RepairReinforcement"
 							]
 						},
 						"attributes": {
@@ -2703,7 +2691,7 @@
 				}
 			]
 		},
-		"RestorationDesignDataset": {
+		"+RestorationDesignDataset": {
 			"allOf": [
 				{
 					"$ref": "cityobjects.schema.json#/CityObjectGroup"
@@ -2712,7 +2700,7 @@
 					"properties": {
 						"type": {
 							"enum": [
-								"RestorationDesignDataset"
+								"+RestorationDesignDataset"
 							]
 						},
 						"attributes": {
@@ -2759,10 +2747,8 @@
 										"$ref": "#/definitions/sip:ApplicableGuidelines"
 									},
 									"sip:AsBuiltDrawings": {
-										"anyOf":[
-										{"$ref": "#/definitions/sip:AsBuiltDrawings"},
-										{"type":"string","description":"id of AsBuiltDrawings"}
-										]									},
+										"$ref": "#/definitions/sip:AsBuiltDrawings"
+									},
 									"sip:ReinforcementInformation": {
 										"$ref": "#/definitions/sip:ReinforcementInformation"
 									},
@@ -2795,7 +2781,7 @@
 				}
 			]
 		},
-		"RepairDesignDataset": {
+		"+RepairDesignDataset": {
 			"allOf": [
 				{
 					"$ref": "cityobjects.schema.json#/CityObjectGroup"
@@ -2804,7 +2790,7 @@
 					"properties": {
 						"type": {
 							"enum": [
-								"RepairDesignDataset"
+								"+RepairDesignDataset"
 							]
 						},
 						"attributes": {
@@ -2882,7 +2868,7 @@
 				}
 			]
 		},
-		"MaintenancePlanDataset": {
+		"+MaintenancePlanDataset": {
 			"allOf": [
 				{
 					"$ref": "cityobjects.schema.json#/CityObjectGroup"
@@ -2891,7 +2877,7 @@
 					"properties": {
 						"type": {
 							"enum": [
-								"MaintenancePlanDataset"
+								"+MaintenancePlanDataset"
 							]
 						},
 						"attributes": {
@@ -2975,7 +2961,7 @@
 				}
 			]
 		},
-		"ReinforcementDesignDataset": {
+		"+ReinforcementDesignDataset": {
 			"allOf": [
 				{
 					"$ref": "cityobjects.schema.json#/CityObjectGroup"
@@ -2984,7 +2970,7 @@
 					"properties": {
 						"type": {
 							"enum": [
-								"ReinforcementDesignDataset"
+								"+ReinforcementDesignDataset"
 							]
 						},
 						"attributes": {
@@ -3071,7 +3057,7 @@
 				}
 			]
 		},
-		"InspectionResultDataset": {
+		"+InspectionResultDataset": {
 			"allOf": [
 				{
 					"$ref": "cityobjects.schema.json#/CityObjectGroup"
@@ -3080,7 +3066,7 @@
 					"properties": {
 						"type": {
 							"enum": [
-								"InspectionResultDataset"
+								"+InspectionResultDataset"
 							]
 						},
 						"attributes": {
@@ -3161,10 +3147,7 @@
 											"sip:Drawing": {
 												"type": "array",
 												"items": {
-												"anyOf":[
-													{"$ref": "#/definitions/sip:SpanGeneralDiagrams"},
-													{"type":"string","description":"id of drawing"}
-													]
+													"$ref": "#/definitions/sip:SpanGeneralDiagrams"
 												}
 											}
 										}
@@ -3178,7 +3161,11 @@
 											"sip:Photo": {
 												"type": "array",
 												"items": {
-													"$ref": "#/definitions/sip:Photo"
+													"anyOf":[
+														{"$ref": "#/definitions/sip:Photo"},
+														{"type":"string","description":"id of photo"}
+													]
+													
 												}
 											}
 										}
@@ -3192,10 +3179,11 @@
 											"sip:Drawing": {
 												"type": "array",
 												"items": {
-												"anyOf":[
-													{"$ref": "#/definitions/sip:Drawing"},
-													{"type":"string","description":"id of drawing"}
-														]
+													"anyOf":[
+														{"$ref": "#/definitions/sip:Drawing"},
+														{"type":"string","description":"id of drawing"}
+													]
+													
 												}
 											}
 										}
@@ -3224,10 +3212,7 @@
 											"sip:Photo": {
 												"type": "array",
 												"items": {
-													"anyOf":[
-														{"$ref": "#/definitions/sip:DamagePhoto"},
-														{"type":"string","description":"id of DamagePhoto"}
-															]
+													"$ref": "#/definitions/sip:DamagePhoto"
 														}
 											}
 										}
